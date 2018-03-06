@@ -7,9 +7,9 @@
 */
 
 // 将 action.type 抽取为常量，减少出错
-import { CHANGE_INPUT_INFO, GET_MEMBER_LIST } from '../types-constant';
+import { CHANGE_INPUT_INFO, GET_MEMBER_LIST } from '../../action-types';
 // 将网络请求抽取出来，方便接口调试，函数返回 Promise
-import { obtainMemberList, postNewMember } from '../../api/home';
+import { obtainMemberList, postNewMember } from '../../../api/home';
 
 // 获取 成员信息列表
 export function getMemberList() {

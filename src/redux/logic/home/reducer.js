@@ -3,7 +3,7 @@
 */
 
 // 将 action type 提取出来作为常量，防止编写错误
-import { CHANGE_INPUT_INFO, GET_MEMBER_LIST } from '../types-constant';
+import { CHANGE_INPUT_INFO, GET_MEMBER_LIST } from '../../action-types';
 
 // state 初始化数据
 const initialState = {

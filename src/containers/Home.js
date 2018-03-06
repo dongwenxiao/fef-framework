@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import HomeCom from '../components/Home/index';
-import { getMemberList, changeInputInfo, postNewInfo } from '../modules/home/actions';
+import { getMemberList, changeInputInfo, postNewInfo } from '../redux/logic/home/actions';
 
 class Home extends Component {
    constructor(props) {
