@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import NewMember from './NewMember';
 import MemberList from './MemberList';
 
-import '../../scss/home.scss';
+// import '../../scss/home.scss';
+import styles from './home.less';
 
 export default class HomeCom extends Component {
    constructor(props) {
@@ -20,7 +21,7 @@ export default class HomeCom extends Component {
       const { memberList, inputInfo } = homeState;
 
       return (
-         <div id="home-container">
+         <div id="home-container" className={styles.bg}>
             <NewMember inputInfo={inputInfo} changeInputInfo={changeInputInfo} postNewInfo={postNewInfo} />
             <MemberList memberList={memberList} />
             {/* location 对象可以有 search 但是 query 取消了 */}

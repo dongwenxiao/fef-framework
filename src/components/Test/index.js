@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import TestForm from './TestForm';
 
-import '../../scss/home.scss';
+// import '../../scss/home.scss';
 
 /*
    @withRouter 是一个修饰器，

@@ -2,7 +2,7 @@
    项目入口
 */
 
-import './scss/index.scss';
+// import './scss/index.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

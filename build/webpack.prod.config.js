@@ -27,14 +27,14 @@ module.exports = merge(baseWebpackConfig, {
    devtool: current.conf.productionSourceMap ? '#source-map' : false,
    module: {
       rules: [
-         {
-            test: /\.(scss|sass|css)$/,
-            include: common.sourceCode,
-            use: ExtractTextPlugin.extract({
-               fallback: 'style-loader',
-               use: utils.computeStyleLoader(true, ['css-loader', 'postcss-loader', 'sass-loader'])
-            })
-         }
+        //  {
+        //     test: /\.(scss|sass|css)$/,
+        //     include: common.sourceCode,
+        //     use: ExtractTextPlugin.extract({
+        //        fallback: 'style-loader',
+        //        use: utils.computeStyleLoader(true, ['css-loader', 'postcss-loader', 'sass-loader'])
+        //     })
+        //  }
       ]
    },
    plugins: [

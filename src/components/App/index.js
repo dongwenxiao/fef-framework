@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types'; // 类型检查捕获错误
 
-import '../../scss/app.scss';
+// import '../../scss/app.scss';
 
 class AppCom extends Component {
    constructor(props) {
