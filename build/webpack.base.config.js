@@ -16,7 +16,7 @@ module.exports = {
     output: utils.computeOutput(config),
     cache: true,
     resolve: {
-        extensions: ['.js', '.json', '.jsx', '.css'],
+        extensions: ['.jsx', '.js', '.json', '.jsx', '.css'],
         modules: ['node_modules', common.sourceCode]
     },
     module: {

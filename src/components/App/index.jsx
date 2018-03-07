@@ -18,6 +18,9 @@ class AppCom extends Component {
 
       return (
          <div id="app-container">
+            <div>
+                头123
+            </div>
             <header className="app-header">{title}</header>
             <div className="app-body">
                {this.props.children}
