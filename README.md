@@ -1,8 +1,18 @@
 # FE Factory - Framework
 
+## 目录
+
+```
+/build              // webpack
+/config             // 程序配置
+/src                // 框架源码
+/src/components     // 组件库
+/tool               // 转换工具
+/dist               // 打包结果
+/ini                // App初始化数据
+```
+
 ## 自动生成文件
-
-
 
 **容器**
 

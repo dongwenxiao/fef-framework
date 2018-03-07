@@ -9,6 +9,8 @@ const utils = require('./utils');
 const common = config.common;
 const current = utils.getEnvAndConf(config);
 const namedAssets = utils.resolve(current.conf.assetsSubDirectory);
+const path = require('path')
+const fefComponentPath = path.resolve(process.cwd(), `../fef-component`)
 
 module.exports = {
     context: common.context,
@@ -17,7 +19,10 @@ module.exports = {
     cache: true,
     resolve: {
         extensions: ['.jsx', '.js', '.json', '.jsx', '.css'],
-        modules: ['node_modules', common.sourceCode]
+        modules: ['node_modules', common.sourceCode],
+        alias: {
+            '@component': fefComponentPath
+        }
     },
     module: {
         rules: [
@@ -42,11 +47,11 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
-                include: common.sourceCode
+                include: [common.sourceCode, fefComponentPath]
             },
             {
                 test: /\.(less|css)$/,
-                include: common.sourceCode,
+                include: [common.sourceCode, fefComponentPath],
                 use: [
                     "style-loader",
                     "css-loader?modules&localIdentName=[name]-[local]-[hash:base64:3]",
