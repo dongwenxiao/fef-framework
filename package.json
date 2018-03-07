@@ -1,8 +1,8 @@
 {
-   "name": "react16-router4-template",
+   "name": "fef-framework",
    "version": "1.0.0",
    "main": "index.js",
-   "author": "mjzhang1993 <mjzhang1993@163.com>",
+   "author": "dongwenxiao <cs_victor@126.com>",
    "license": "MIT",
    "scripts": {
       "dev": "node build/dev-server.js",
