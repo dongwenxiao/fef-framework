@@ -47,11 +47,11 @@ server.listen(port, devServerIp, () => {
    console.log(chalk.cyan(`Starting server on ${link}`));
    console.log(chalk.cyan(`development data server on ${basicRequestLink}`));
 
-//    opn(link)
-//       .then(() => {
-//          console.log(chalk.cyan('success open ...'));
-//       })
-//       .catch(err => {
-//          console.log(chalk.red(err));
-//       });
+   opn(link)
+      .then(() => {
+         console.log(chalk.cyan('success open ...'));
+      })
+      .catch(err => {
+         console.log(chalk.red(err));
+      });
 });
