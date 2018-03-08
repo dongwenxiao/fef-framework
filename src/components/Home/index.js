@@ -28,7 +28,9 @@ export default class HomeCom extends Component {
                 <Label>oooooooo</Label>
 
                 <Button
-                    text={'这是一个按钮'}
+                    size="small"
+                    text="这是一个按钮"
+                    loading={true}
                     __events={{
                         onClick: ((handler, proxyState) => {
                             return ({ event, value }) => {

@@ -8,7 +8,7 @@ export default class Button extends React.Component {
 
     render() {
         return (
-            <AntButton onClick={this.handleOnClick}>{this.props.text}</AntButton>
+            <AntButton {...this.props} onClick={this.handleOnClick}>{this.props.text}</AntButton>
         )
     }
 
@@ -24,5 +24,7 @@ Button.propTypes = {
     __children: PropTypes.array,
     __validation: PropTypes.string,
 
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    size: PropTypes.oneOf(['small', 'large']),
+    loading: PropTypes.bool
 }
