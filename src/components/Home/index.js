@@ -5,8 +5,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NewMember from './NewMember';
 import MemberList from './MemberList';
-// import Label from '../Label'
-import Label from '@component/Label'
+import Label from '../Label'
+// import Button from '../Button'
+import {Button} from 'antd'
+
 
 // import '../../scss/home.scss';
 import styles from './home.less';
@@ -24,7 +26,9 @@ export default class HomeCom extends Component {
 
       return (
          <div id="home-container" className={styles.bg}>
+
             <Label>oooooooo</Label>
+            <Button>bbbbbbbbb</Button>
             <NewMember inputInfo={inputInfo} changeInputInfo={changeInputInfo} postNewInfo={postNewInfo} />
             <MemberList memberList={memberList} />
             {/* location 对象可以有 search 但是 query 取消了 */}

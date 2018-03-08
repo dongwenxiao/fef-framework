@@ -14,6 +14,7 @@ const current = utils.getEnvAndConf(config);
 
 module.exports = merge(baseWebpackConfig, {
     devtool: '#cheap-module-eval-source-map',
+    // devtool: 'source-map',
     module: {
         // rules: [{
         //     test: /\.(scss|sass|css)$/,

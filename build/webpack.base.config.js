@@ -9,10 +9,12 @@ const utils = require('./utils');
 const common = config.common;
 const current = utils.getEnvAndConf(config);
 const namedAssets = utils.resolve(current.conf.assetsSubDirectory);
-const path = require('path')
-const fefComponentPath = path.resolve(process.cwd(), `../fef-component`)
+// const path = require('path')
+// const fefComponentPath = path.resolve(process.cwd(), `../fef-component`)
+const antdCode = `${process.cwd()}/node_modules/antd`
 
 module.exports = {
+    target: 'web',
     context: common.context,
     entry: utils.computeEntry(config, packageConfig),
     output: utils.computeOutput(config),
@@ -20,9 +22,9 @@ module.exports = {
     resolve: {
         extensions: ['.jsx', '.js', '.json', '.jsx', '.css'],
         modules: ['node_modules', common.sourceCode],
-        alias: {
-            '@component': fefComponentPath
-        }
+        // alias: {
+        //     '@component': fefComponentPath
+        // }
     },
     module: {
         rules: [
@@ -47,11 +49,11 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
-                include: [common.sourceCode, fefComponentPath]
+                include: [common.sourceCode, antdCode]
             },
             {
                 test: /\.(less|css)$/,
-                include: [common.sourceCode, fefComponentPath],
+                include: [common.sourceCode, antdCode],
                 use: [
                     "style-loader",
                     "css-loader?modules&localIdentName=[name]-[local]-[hash:base64:3]",
