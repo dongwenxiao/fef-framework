@@ -17,6 +17,6 @@
         "transform-decorators-legacy",
         "transform-regenerator",
         "react-hot-loader/babel",
-        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
     ]
 }

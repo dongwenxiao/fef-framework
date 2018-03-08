@@ -60,7 +60,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(css)$/,
+                test: /\.(less)$/,
                 include: [antdCode],
                 use: [
                     "style-loader",
