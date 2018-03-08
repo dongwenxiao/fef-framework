@@ -1,0 +1,1 @@
+const globalActions = window.globalActions = {}

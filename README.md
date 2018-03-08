@@ -28,3 +28,8 @@
 **路由**
 
 > ```/src/router/auto__routes.js```
+
+**动作**
+
+> ```/src/auto/all-default-actions.js```
+> ```/src/auto/user-fetch-actions.js```
