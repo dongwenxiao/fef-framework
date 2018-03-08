@@ -5,7 +5,7 @@
                 "modules": false
             }
         ],
-        "stage-2"
+        "stage-0"
     ],
     "plugins": [
         ["transform-runtime", {
@@ -16,7 +16,6 @@
         }],
         "transform-decorators-legacy",
         "transform-regenerator",
-        "react-hot-loader/babel",
-        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
+        "react-hot-loader/babel"
     ]
 }

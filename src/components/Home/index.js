@@ -6,12 +6,10 @@ import { Link } from 'react-router-dom';
 import NewMember from './NewMember';
 import MemberList from './MemberList';
 import Label from '../Label'
-import Button from '../Button'
-// import { Button } from 'antd'
-
-
-// import '../../scss/home.scss';
+import Button from '../antd/Button'
 import styles from './home.less';
+
+const proxyState = {}
 
 export default class HomeCom extends Component {
     constructor(props) {
@@ -28,7 +26,24 @@ export default class HomeCom extends Component {
             <div id="home-container" className={styles.bg}>
 
                 <Label>oooooooo</Label>
-                <Button>bbbbbbbbb</Button>
+
+                <Button
+                    text={'这是一个按钮'}
+                    __events={{
+                        onClick: ((handler, proxyState) => {
+                            return ({ event, value }) => {
+                                handler({ event, value, state: proxyState })
+                            }
+                        })(
+                            // 判断用户自定义处理 或 全局action处理
+                            ({ event, value, state }) => {
+                                // globalActions['GetGoodsList']();
+                                alert(1)
+                            },
+                            proxyState
+                        )
+                    }} >bbbbbbbbb</Button>
+
                 <NewMember inputInfo={inputInfo} changeInputInfo={changeInputInfo} postNewInfo={postNewInfo} />
                 <MemberList memberList={memberList} />
                 {/* location 对象可以有 search 但是 query 取消了 */}
