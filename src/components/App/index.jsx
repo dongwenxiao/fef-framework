@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'; // 类型检查捕获错误
 
 // import '../../scss/app.scss';
 
+
 class AppCom extends Component {
    constructor(props) {
       super(props);
