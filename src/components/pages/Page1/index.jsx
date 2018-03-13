@@ -8,7 +8,7 @@ export default class HomeCom extends Component {
     render() {
 
         return (
-            <div className={styles.bg}>
+            <div>
                 Page 1
             </div>
         )

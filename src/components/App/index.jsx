@@ -2,7 +2,7 @@
    App 容器组件的子组件，顶部状态栏
 */
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import PropTypes from 'prop-types' // 类型检查捕获错误
 import LocaleProvider from '../antd/Locale'
 import Icon from '../antd/Icon'
@@ -36,9 +36,9 @@ class AppCom extends Component {
                                 defaultSelectedKeys={['2']}
                                 style={{ lineHeight: '64px' }}
                             >
-                                <Menu.Item key="1">nav 1</Menu.Item>
-                                <Menu.Item key="2">nav 2</Menu.Item>
-                                <Menu.Item key="3">nav 3</Menu.Item>
+                                <Menu.Item key="1"><Link to="/">nav 1</Link></Menu.Item>
+                                <Menu.Item key="2"><Link to="/test">nav 2</Link></Menu.Item>
+                                <Menu.Item key="3"><Link to="/page1">nav 3</Link></Menu.Item>
                             </Menu>
                         </Header>
                     </Layout>

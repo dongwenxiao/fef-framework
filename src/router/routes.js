@@ -16,6 +16,7 @@ import App from '../containers/App';
 
 const Home = lazyLoad(() => import(/* webpackChunkName: "Home" */ '../containers/Home'));
 const Test = lazyLoad(() => import(/* webpackChunkName: "Test" */ '../containers/Test'));
+const Page1 = lazyLoad(() => import(/* webpackChunkName: "Page1" */ '../containers/Page1'));
 
 const Root = () => (
    <div>
@@ -31,6 +32,7 @@ const Root = () => (
                      <Route path="/" exact component={Home} />
                      <Route path="/home" component={Home} />
                      <Route path="/test" component={Test} />
+                     <Route path="/page1" component={Page1} />
                      <Route render={() => <Redirect to="/" />} />
                   </Switch>
                </App>
