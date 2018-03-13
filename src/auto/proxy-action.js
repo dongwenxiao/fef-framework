@@ -1,5 +1,11 @@
+/* 
+    代理派发action
+*/
+
+// 单例
 const globalActions = {}
-const fetch = require('@erp/utils/fetch')
+
+const fetch = require('../utils/fetch')
 const proxyState = require('./proxy-state')()
 
 const convertStr2Var = (str) => {
@@ -10,6 +16,7 @@ const convertStr2Var = (str) => {
     `
     return eval(execute)
 }
+
 const convert2Data = (data) => {
     let newData = {}
     for (let key in data) {
@@ -18,9 +25,7 @@ const convert2Data = (data) => {
     return newData
 }
 
-
-
-const createGlobalAction = (name, setting) => {
+const create = (name, setting) => {
 
     if (setting.action == 'FetchData') {
         let config = setting.value
@@ -39,6 +44,6 @@ const createGlobalAction = (name, setting) => {
     }
 }
 
-globalActions.createGlobalAction = createGlobalAction
+globalActions.create = create
 
 module.exports = globalActions
