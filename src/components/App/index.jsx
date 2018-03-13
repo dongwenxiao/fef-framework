@@ -77,7 +77,7 @@ class AppCom extends Component {
                                 <Breadcrumb.Item>App</Breadcrumb.Item>
                             </Breadcrumb>
                             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                                Content
+                                {this.props.children}
                             </Content>
                         </Layout>
                     </Layout>
