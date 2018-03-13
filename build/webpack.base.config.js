@@ -35,15 +35,15 @@ module.exports = {
             // 		name: '[name]'
             // 	}
             // },
-            {
-                test: /\.(js|jsx)$/,
-                loader: 'eslint-loader',
-                enforce: 'pre',
-                include: common.sourceCode,
-                options: {
-                    formatter: require('eslint-friendly-formatter')
-                }
-            },
+            // {
+            //     test: /\.(js|jsx)$/,
+            //     loader: 'eslint-loader',
+            //     enforce: 'pre',
+            //     include: common.sourceCode,
+            //     options: {
+            //         formatter: require('eslint-friendly-formatter')
+            //     }
+            // },
             {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
