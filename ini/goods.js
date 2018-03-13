@@ -4,7 +4,6 @@ const goodsPageConfig = {
         {
             component: 'Card',
             children: [
-                
                 {
                     component: 'Row',
                     children: [

@@ -9,7 +9,7 @@
         "start": "npm run dev",
         "dev": "node build/dev-server.js",
         "build": "node build/build.js",
-        "auto": "TODO: auto generator code",
+        "auto": "node tools/convert/run.js",
         "deploy": "TODO: deploy",
 
 
