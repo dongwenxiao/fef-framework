@@ -33,3 +33,8 @@
 
 > ```/src/auto/all-default-actions.js```
 > ```/src/auto/user-fetch-actions.js```
+
+
+## TODO
+
+* 思考包装后的组件如何暴露他的```__events``` \ ```props```
