@@ -4,7 +4,20 @@ import PropTypes from 'prop-types'
 
 import 'antd/lib/button/style'
 
+
+const __events = {
+    onClick: () => {
+
+    }
+}
+
 export default class Button extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        Object.assign(__events, props.__events)
+    }
 
     render() {
         return (

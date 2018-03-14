@@ -14,8 +14,8 @@
             "regenerator": true,
             "moduleName": "babel-runtime"
         }],
+        "react-hot-loader/babel",
         "transform-decorators-legacy",
-        "transform-regenerator",
-        "react-hot-loader/babel"
+        "transform-regenerator"
     ]
 }

@@ -2,11 +2,13 @@ import React from 'react'
 import Menu from 'antd/lib/menu'
 import 'antd/lib/menu/style'
 
+const { Item } = Menu
+
 export default class extends React.Component {
 
     render() {
         return (
-            <Menu {...this.props}>{this.props.children}</Menu>
+            <Item {...this.props}>{this.props.children}</Item>
         )
     }
 

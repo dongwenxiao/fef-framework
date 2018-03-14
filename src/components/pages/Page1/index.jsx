@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const proxyState = {}
 
-export default class HomeCom extends Component {
+export default class extends Component {
 
     render() {
 
