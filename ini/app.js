@@ -42,7 +42,7 @@ const appConfig = {
         }
     },
     pages: [
-        require('./goods')
+        { name: 'Goods', config: require('./goods') }
     ]
 }
 
