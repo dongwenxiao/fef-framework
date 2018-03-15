@@ -1,6 +1,7 @@
-import * as page1ActionTypes from './logic/page1/action-types'
+// import * as page1ActionTypes from './logic/page1/action-types'
 
-const autoActionTypes = [page1ActionTypes]
+// const autoActionTypes = [page1ActionTypes]
+import { autoActionTypes } from './auto-action-types'
 
 // 以上是自动生成部分------------------------------------------------------
 
