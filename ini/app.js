@@ -2,22 +2,6 @@ const appConfig = {
     config: {
         api: 'http://erp-test-api.cmcm.com',
     },
-    state: {
-        goods: {
-            filter_goodsName: '',
-            filter_goodsID: '',
-            filter_goodsBrand: '',
-            filter_goodsCategory: '',
-
-            // display
-            brandList: [],
-            categoryList: [],
-            goodsList: [],
-            goodsTotal: 0,
-            goodsPageIndex: 1,
-            goodsPageSize: 10
-        }
-    },
     actions: { // page内全局 action
         GetGoodsList: {
             action: 'FetchData',
@@ -41,9 +25,24 @@ const appConfig = {
             }
         }
     },
-    pages: [
-        { name: 'Goods', config: require('./goods') }
-    ]
+    pages: [{
+        name: 'Goods',  // 唯一
+        component: require('./goods'),
+        state: {
+            filter_goodsName: '',
+            filter_goodsID: '',
+            filter_goodsBrand: '',
+            filter_goodsCategory: '',
+
+            // display
+            brandList: [],
+            categoryList: [],
+            goodsList: [],
+            goodsTotal: 0,
+            goodsPageIndex: 1,
+            goodsPageSize: 10
+        }
+    }]
 }
 
 module.exports = appConfig
