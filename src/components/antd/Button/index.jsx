@@ -5,16 +5,16 @@ import 'antd/lib/button/style'
 
 export default class Button extends React.Component {
     render() {
-        let wapperProps = standard.wapperProps(this.props)
-        let wapperEvents = standard.wapperEvents(this.props)
-        return (<AntButton {...wapperProps} {...wapperEvents}>{wapperProps.text}</AntButton>)
+        let props = standard.props(this.props)
+        let events = standard.events(this.props)
+        return (<AntButton {...props} {...events}>{props.text}</AntButton>)
     }
 }
 
 export const standard = {
-    wapperProps: (props = {}) => {
+    props: (props = {}) => {
         let defaultProps = {
-            text: 'aaaa',
+            text: '按钮',
             size: 'small',
             loading: false
         }
@@ -22,12 +22,11 @@ export const standard = {
         delete p.__events
         return p
     },
-    wapperEvents: (props = {}) => {
-        let e = {
+    events: (props = {}) => {
+        return {
             onClick: (event) => {
                 props.__events && props.__events.onClick && props.__events.onClick({ event })
             }
         }
-        return e
     }
 }

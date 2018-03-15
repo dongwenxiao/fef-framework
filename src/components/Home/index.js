@@ -17,8 +17,7 @@ export default class HomeCom extends Component {
     }
     componentWillMount() {
         // this.props.getMemberList();
-        console.log(standard.wapperProps())
-        console.log(standard.wapperEvents())
+        console.log(standard)
     }
     render() {
         const { homeState, changeInputInfo, postNewInfo } = this.props;
