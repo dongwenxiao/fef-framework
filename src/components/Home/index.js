@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import NewMember from './NewMember';
 import MemberList from './MemberList';
 import Label from '../Label'
-import Button from '../antd/Button'
+import Button, { standard } from '../antd/Button'
 import styles from './home.less';
 
 const proxyState = {}
@@ -17,6 +17,8 @@ export default class HomeCom extends Component {
     }
     componentWillMount() {
         // this.props.getMemberList();
+        console.log(standard.wapperProps())
+        console.log(standard.wapperEvents())
     }
     render() {
         const { homeState, changeInputInfo, postNewInfo } = this.props;
@@ -30,7 +32,7 @@ export default class HomeCom extends Component {
                 <Button
                     size="small"
                     text="这是一个按钮"
-                    loading={true}
+                    loading={false}
                     __events={{
                         onClick: ((handler, proxyState) => {
                             return ({ event, value }) => {
