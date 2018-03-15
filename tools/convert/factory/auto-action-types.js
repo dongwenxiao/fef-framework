@@ -4,7 +4,6 @@
     /src/redux/auto-action-types.js
 */
 
-
 const write = require('../utils/write')
 const format = require('../utils/format')
 const config = require('../config')
