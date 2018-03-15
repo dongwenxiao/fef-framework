@@ -7,6 +7,7 @@
 
 const write = require('../utils/write')
 const format = require('../utils/format')
+const config = require('../config')
 
 module.exports = {
     make: (pageName) => {
@@ -32,6 +33,6 @@ module.exports = {
             }
         `
 
-        write(`${process.cwd()}/src/components/pages/${pageClassName}/index.jsx`, format.jsx(code))
+        write(`${config.root}/src/components/pages/${pageClassName}/index.jsx`, format.jsx(code))
     }
 }
