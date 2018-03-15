@@ -12,16 +12,23 @@ const config = require('../config')
 module.exports = {
     make: (pages) => {
 
+        let importsCode = []
         let codes = pages.map(page => {
             let pageClassName = `${page}Page`
+            let importClassName = `${pageClassName}ActionTypes`
+            importsCode.push(importClassName)
             let code = `
-                import * as ${pageClassName}ActionTypes from './logic/${pageClassName}/action-types'
-                export const autoActionTypes = [${pageClassName}ActionTypes]
+                import * as ${importClassName} from './logic/${pageClassName}/action-types'
             `
+            return code
         })
+
+        codes.push(`
+            export const autoActionTypes = [${importsCode.join(',')}]
+        `)
 
         let code = codes.join('')
 
-        write(`${config.root}/src/logic/${pageClassName}/initial-state-factory.js`, format.jsx(code))
+        write(`${config.root}/src/redux/auto-action-types.js`, format.jsx(code))
     }
 }
