@@ -27,21 +27,8 @@ const appConfig = {
     },
     pages: [{
         name: 'Goods',  // 唯一
-        component: require('./goods'),
-        state: {
-            filter_goodsName: '',
-            filter_goodsID: '',
-            filter_goodsBrand: '',
-            filter_goodsCategory: '',
-
-            // display
-            brandList: [],
-            categoryList: [],
-            goodsList: [],
-            goodsTotal: 0,
-            goodsPageIndex: 1,
-            goodsPageSize: 10
-        }
+        component: require('./goods/component'),
+        state: require('./goods/state')
     }]
 }
 

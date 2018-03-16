@@ -1,4 +1,4 @@
-const goodsPageConfig = {
+module.exports = {
     component: 'Page',
     children: [
         {
@@ -298,5 +298,3 @@ const goodsPageConfig = {
         },
     ]
 }
-
-module.exports = goodsPageConfig
