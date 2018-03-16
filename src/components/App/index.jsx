@@ -17,7 +17,9 @@ import Menu from '../antd/Menu'
 import SubMenu from '../antd/Menu/SubMenu'
 import MenuItem from '../antd/Menu/MenuItem'
 
-class AppCom extends Component {
+import AutoMenu from './AutoMenu'
+
+class App extends Component {
     constructor(props) {
         super(props)
     }
@@ -25,47 +27,44 @@ class AppCom extends Component {
 
         return (
             <LocaleProvider>
-                <div id="app-container">
+                <div id='app-container'>
                     <Layout>
-                        <Header className="header">
-                            <div className="logo" />
+                        <Header className='header'>
+                            <div className='logo' />
                             <Menu
-                                theme="dark"
-                                mode="horizontal"
+                                theme='dark'
+                                mode='horizontal'
                                 defaultSelectedKeys={['2']}
                                 style={{ lineHeight: '64px' }}
                             >
-                                <MenuItem key="1"><Link to="/">nav 1</Link></MenuItem>
-                                <MenuItem key="2"><Link to="/test">nav 2</Link></MenuItem>
-                                <MenuItem key="3"><Link to="/page1">nav 3</Link></MenuItem>
+                                <MenuItem key='1'><Link to='/'>nav 1</Link></MenuItem>
+                                <MenuItem key='2'><Link to='/test'>nav 2</Link></MenuItem>
+                                <MenuItem key='3'><Link to='/page1'>nav 3</Link></MenuItem>
                             </Menu>
                         </Header>
                     </Layout>
                     <Layout>
                         <Sider width={200} style={{ background: '#fff' }}>
                             <Menu
-                                mode="inline"
+                                mode='inline'
                                 defaultSelectedKeys={['1']}
                                 defaultOpenKeys={['sub1']}
                                 style={{ height: '100%', borderRight: 0 }}
                             >
-                                <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
-                                    <MenuItem key="1">option1</MenuItem>
-                                    <MenuItem key="2">option2</MenuItem>
-                                    <MenuItem key="3">option3</MenuItem>
-                                    <MenuItem key="4">option4</MenuItem>
+                                <SubMenu key='sub1' title={<span><Icon type='user' />自动生成</span>}>
+                                    {AutoMenu()}
                                 </SubMenu>
-                                <SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
-                                    <MenuItem key="5">option5</MenuItem>
-                                    <MenuItem key="6">option6</MenuItem>
-                                    <MenuItem key="7">option7</MenuItem>
-                                    <MenuItem key="8">option8</MenuItem>
+                                <SubMenu key='sub2' title={<span><Icon type='laptop' />subnav 2</span>}>
+                                    <MenuItem key='5'>option5</MenuItem>
+                                    <MenuItem key='6'>option6</MenuItem>
+                                    <MenuItem key='7'>option7</MenuItem>
+                                    <MenuItem key='8'>option8</MenuItem>
                                 </SubMenu>
-                                <SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
-                                    <MenuItem key="9">option9</MenuItem>
-                                    <MenuItem key="10">option10</MenuItem>
-                                    <MenuItem key="11">option11</MenuItem>
-                                    <MenuItem key="12">option12</MenuItem>
+                                <SubMenu key='sub3' title={<span><Icon type='notification' />subnav 3</span>}>
+                                    <MenuItem key='9'>option9</MenuItem>
+                                    <MenuItem key='10'>option10</MenuItem>
+                                    <MenuItem key='11'>option11</MenuItem>
+                                    <MenuItem key='12'>option12</MenuItem>
                                 </SubMenu>
                             </Menu>
                         </Sider>
@@ -86,13 +85,13 @@ class AppCom extends Component {
     }
 }
 // 设置默认值
-AppCom.defaultProps = {
+App.defaultProps = {
     title: 'default title'
 }
 
 // 规定类型
-AppCom.propTypes = {
+App.propTypes = {
     title: PropTypes.string
 }
 
-export default withRouter(AppCom)
+export default withRouter(App)

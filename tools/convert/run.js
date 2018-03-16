@@ -10,6 +10,7 @@ const reducerFactory = require('./factory/reducer')
 const initialStateFactoryFactory = require('./factory/initial-state-factory')
 const autoActionTypesFactory = require('./factory/auto-action-types')
 const routesFactory = require('./factory/routes')
+const autoMenuFactory = require('./factory/auto-menu')
 
 // console.log(JSON.stringify(appConfig))
 
@@ -29,3 +30,4 @@ appConfig.pages.forEach(page => {
 let pages = appConfig.pages.map(page => page.name)
 autoActionTypesFactory.make(pages)
 routesFactory.make(pages)
+autoMenuFactory.make(pages)
