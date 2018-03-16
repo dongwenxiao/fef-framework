@@ -17,20 +17,20 @@ export default class HomeCom extends Component {
     }
     componentWillMount() {
         // this.props.getMemberList();
-        console.log(standard)
+        // console.log(standard)
     }
     render() {
         const { homeState, changeInputInfo, postNewInfo } = this.props;
         const { memberList, inputInfo } = homeState;
 
         return (
-            <div id="home-container" className={styles.bg}>
+            <div id='home-container' className={styles.bg}>
 
                 <Label>oooooooo</Label>
 
                 <Button
-                    size="small"
-                    text="这是一个按钮"
+                    size='small'
+                    text='这是一个按钮'
                     loading={false}
                     __events={{
                         onClick: ((handler, proxyState) => {
@@ -50,7 +50,7 @@ export default class HomeCom extends Component {
                 <NewMember inputInfo={inputInfo} changeInputInfo={changeInputInfo} postNewInfo={postNewInfo} />
                 <MemberList memberList={memberList} />
                 {/* location 对象可以有 search 但是 query 取消了 */}
-                <Link to={{ pathname: '/test', search: '?name=homename', state: { mold: 'add' } }} className="home-link">
+                <Link to={{ pathname: '/test', search: '?name=homename', state: { mold: 'add' } }} className='home-link'>
                     点击跳转到 test page sasas
             </Link>
             </div>
