@@ -25,24 +25,24 @@ const Root = () => (
    <div>
       <Switch>
          <Route
-            path="/"
+            path='/'
             render={props => (
                <App>
                   <Switch>
                      {/* <Route path="/" exact component={lazyLoad(Home)} />
                      <Route path="/home" component={lazyLoad(Home)} />
                      <Route path="/test" component={lazyLoad(Test)} /> */}
-                     <Route path="/" exact component={Home} />
-                     <Route path="/home" component={Home} />
-                     <Route path="/test" component={Test} />
-                     <Route path="/page1" component={Page1} />
+                     <Route path='/' exact component={Home} />
+                     <Route path='/home' component={Home} />
+                     <Route path='/test' component={Test} />
+                     <Route path='/page1' component={Page1} />
                      {routes}
-                     <Route render={() => <Redirect to="/" />} />
+                     <Route render={() => <Redirect to='/' />} />
                   </Switch>
                </App>
             )}
          />
-         <Route render={() => <Redirect to="/" />} />
+         <Route render={() => <Redirect to='/' />} />
       </Switch>
    </div>
 )

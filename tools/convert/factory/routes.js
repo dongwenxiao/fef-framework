@@ -15,8 +15,8 @@ module.exports = {
             return `const ${pageName} = lazyLoad(() => import(/* webpackChunkName: "${pageName}" */ '../containers/${pageName}PageContainer'))`
         })
 
-        let tagsCode = pages.map(pageName => {
-            return `<Route path='/${pageName.toLowerCase()}' component={${pageName}} />`
+        let tagsCode = pages.map((pageName, i) => {
+            return `<Route key='${pageName}-${i}' path='/${pageName.toLowerCase()}' component={${pageName}} />`
         })
 
         let code = `

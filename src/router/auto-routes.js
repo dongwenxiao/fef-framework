@@ -6,7 +6,7 @@
             const Goods = lazyLoad(() => import(/* webpackChunkName: "Goods" */ '../containers/GoodsPageContainer'))
             
             const routes = [
-                <Route path='/goods' component={Goods} />
+                <Route key='Goods-0' path='/goods' component={Goods} />
             ]
 
             export { routes }
