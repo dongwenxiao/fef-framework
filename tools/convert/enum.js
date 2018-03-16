@@ -1,8 +1,7 @@
 module.exports = {
     Action: {
-        Custom: 'Custom',
-        ChangeState: 'ChangeState',
+        Fetch: 'Fetch',
         Redirect: 'Redirect',
-        Script: 'Script'
+        Script: 'Script'  // ChangeState
     }
 }
