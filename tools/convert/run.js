@@ -18,7 +18,7 @@ const autoReducersFactory = require('./factory/auto-reducers')
 appConfig.pages.forEach(page => {
     // page
     pageFactory.make(page.name)
-    containerFactory.make(page.name)
+    containerFactory.make(page.name, page.state)
 
     // redux
     actionTypesFactory.make(page.name)

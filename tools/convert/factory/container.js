@@ -10,7 +10,7 @@ const format = require('../utils/format')
 const config = require('../config')
 
 module.exports = {
-    make: (pageName) => {
+    make: (pageName, state) => {
 
         let pageClassName = `${pageName}Page`
         let containerClassName = `${pageName}PageContainer`
@@ -18,28 +18,21 @@ module.exports = {
         let code = `
             import React, { Component } from 'react'
             import { connect } from 'react-redux'
+            import ${pageClassName} from '../components/pages/${pageClassName}'
             // import { bindActionCreators } from 'redux'
 
-            import ${pageClassName} from '../components/pages/${pageClassName}'
-            // import { getMemberList, changeInputInfo, postNewInfo } from '../redux/logic/home/actions'
-
-            // @connect(state => ({ homeState: state.home }))
             class ${containerClassName} extends Component {
                 constructor(props) {
                     super(props)
                 }
                 render() {
+                    console.log(this.props.${pageName}State)
                     return <${pageClassName} {...this.props} />
                 }
             }
 
             export default connect(
-                state => ({ homeState: state.home }),
-                //    dispatch => ({
-                //       getMemberList: bindActionCreators(getMemberList, dispatch),
-                //       changeInputInfo: bindActionCreators(changeInputInfo, dispatch),
-                //       postNewInfo: bindActionCreators(postNewInfo, dispatch)
-                //    })
+                state => ({ ${pageName}State: state.${pageName}Page })
             )(${containerClassName})
 
         `
