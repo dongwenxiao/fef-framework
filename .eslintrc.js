@@ -63,6 +63,7 @@ module.exports = {
             after: true
          }
       ],
+      'semi': [2, 'never'],
       'comma-dangle': 0,
       'wrap-iife': 2,
       'no-extra-semi': 2,
