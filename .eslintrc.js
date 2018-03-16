@@ -83,7 +83,7 @@ module.exports = {
       'prefer-const': 0,
 
       // React
-      'jsx-quotes': [2, 'prefer-double'],
+      'jsx-quotes': [2, 'prefer-single'],
       'react/jsx-uses-react': 1,
       'react/jsx-uses-vars': 1
    }

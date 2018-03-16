@@ -12,11 +12,11 @@ module.exports = {
     make: (pages) => {
 
         let importCode = pages.map(pageName => {
-            return `const ${pageName} = lazyLoad(() => import(/* webpackChunkName: '${pageName}' */ '../containers/${pageName}PageContainer'))`
+            return `const ${pageName} = lazyLoad(() => import(/* webpackChunkName: "${pageName}" */ '../containers/${pageName}PageContainer'))`
         })
 
         let tagsCode = pages.map(pageName => {
-            `<Route path='/${pageName.toLowerCase()}' component={${pageName}} />`
+            return `<Route path='/${pageName.toLowerCase()}' component={${pageName}} />`
         })
 
         let code = `
@@ -26,11 +26,15 @@ module.exports = {
 
             ${importCode.join('\n')}
             
-            export const routes = [
+            const routes = [
                 ${tagsCode.join(',')}
             ]
+
+            export { routes }
         `
         
-        write(`${config.root}/src/router/auto-routes.js`, format.jsx(code))
+        write(`${config.root}/src/router/auto-routes.js`, code)
+        // 开启格式化会报错，可能是配置问题
+        // write(`${config.root}/src/router/auto-routes.js`, format.jsx(code))
     }
 }

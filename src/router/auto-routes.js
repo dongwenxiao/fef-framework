@@ -1,13 +1,12 @@
+
 import React from 'react'
 import { Route } from 'react-router-dom'
 import lazyLoad from './lazyLoad'
 
-const Home = lazyLoad(() => import(/* webpackChunkName: "Home" */ '../containers/Home'))
-const Test = lazyLoad(() => import(/* webpackChunkName: "Test" */ '../containers/Test'))
-const Page1 = lazyLoad(() => import(/* webpackChunkName: "Page1" */ '../containers/Page1'))
+const Goods = lazyLoad(() => import(/* webpackChunkName: "Goods" */ '../containers/GoodsPageContainer'))
 
-export const routes = [
-    <Route path="/home" component={Home} />,
-    <Route path="/test" component={Test} />,
-    <Route path="/page1" component={Page1} />
+const routes = [
+    <Route path='/goods' component={Goods} />
 ]
+
+export { routes }

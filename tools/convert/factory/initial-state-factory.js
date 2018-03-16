@@ -10,13 +10,13 @@ const config = require('../config')
 
 module.exports = {
     make: (pageName, state) => {
-
+        
         let pageClassName = `${pageName}Page`
 
         let code = `
-            export const factory = () => ({
+            export const factory = () => (
                 ${JSON.stringify(state)}
-            })
+            )
         `
 
         write(`${config.root}/src/redux/logic/${pageClassName}/initial-state-factory.js`, format.jsx(code))
