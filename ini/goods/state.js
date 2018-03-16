@@ -1,8 +1,8 @@
 module.exports = {
-    filter_goodsName: '',
-    filter_goodsID: '',
-    filter_goodsBrand: '',
-    filter_goodsCategory: '',
+    filterGoodsName: '',
+    filterGoodsID: '',
+    filterGoodsBrand: '',
+    filterGoodsCategory: '',
 
     // display
     brandList: [],
