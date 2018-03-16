@@ -26,7 +26,7 @@ const appConfig = {
         }
     },
     pages: [{
-        name: 'Goods',  // 唯一
+        name: 'Goods', // 唯一
         component: require('./goods/component'),
         state: require('./goods/state')
     }]

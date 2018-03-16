@@ -8,7 +8,8 @@ const actionTypesFactory = require('./factory/action-types')
 const actionsFactory = require('./factory/actions')
 const reducerFactory = require('./factory/reducer')
 const initialStateFactoryFactory = require('./factory/initial-state-factory')
-const autoActionTypes = require('./factory/auto-action-types')
+const autoActionTypesFactory = require('./factory/auto-action-types')
+const routesFactory = require('./factory/routes')
 
 // console.log(JSON.stringify(appConfig))
 
@@ -21,8 +22,10 @@ appConfig.pages.forEach(page => {
     actionTypesFactory.make(page.name)
     actionsFactory.make(page.name)
     reducerFactory.make(page.name)
-        // initialStateFactoryFactory.make(page.name, page.config.state) // state 需要改配置结构
+    initialStateFactoryFactory.make(page.name, page.state) // state 需要改配置结构
 
 })
 
-autoActionTypes.make(appConfig.pages.map(page => page.name))
+let pages = appConfig.pages.map(page => page.name)
+autoActionTypesFactory.make(pages)
+routesFactory.make(pages)
