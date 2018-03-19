@@ -13,7 +13,7 @@ module.exports = {
                                 {
                                     component: 'Label',
                                     props: {
-                                        children: '商品名:'
+                                        text: '商品名:'
                                     }
                                 },
                                 {
@@ -38,7 +38,7 @@ module.exports = {
                                 {
                                     component: 'Label',
                                     props: {
-                                        children: '商品ID:'
+                                        text: '商品ID:'
                                     }
                                 },
                                 {
@@ -214,7 +214,7 @@ module.exports = {
                             component: 'Table',
                             props: {
                                 value: [],
-                                dataSource: 'bind:state.goods.goodsList',
+                                dataSource: 'bind:state.GoodsPage.goodsList',
                                 columns: [
                                     {
                                         title: 'ID',

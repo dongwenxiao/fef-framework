@@ -7,15 +7,19 @@
 const write = require('../utils/write')
 const format = require('../utils/format')
 const config = require('../config')
+const tags = require('./tags')
 
 module.exports = {
     make: ({ name, component, state }) => {
 
         let pageClassName = `${name}Page`
+        let componentTag = tags.make([component])
 
         let code = `
             import React, { Component } from 'react'
             import { Link } from 'react-router-dom'
+
+            ${componentTag.imports}            
 
             const proxyState = require('../../../auto/proxy-state')
 
@@ -26,6 +30,8 @@ module.exports = {
                     return (
                         <div>
                             Page: ${pageClassName}
+
+                            ${componentTag.code}
                         </div>
                     )
                 }

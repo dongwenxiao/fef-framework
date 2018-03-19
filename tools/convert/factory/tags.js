@@ -1,11 +1,22 @@
+const Action = require('../enum').Action
+
 module.exports = {
     make: (components) => {
-        return recursive(components)
+        collection.reset()
+        let code = recursive(components)
+        let imports = collection.get().map(tag => ` import ${tag} from '../../antd/${tag}' `).join('\n')
+        return {
+            imports,
+            code
+        }
     }
 }
 
 function recursive(components) {
     return components.map((one, i) => {
+
+        collection.add(one.component)
+
         let tpl = []
         let tag = makeTag(one.component, one.props)
         tpl.push(tag.begin)
@@ -18,7 +29,22 @@ function recursive(components) {
 }
 
 
-function makeTag(tag, porps) {
+let collection = {
+    imports: [],
+    reset: () => {
+        this.imports = []
+    },
+    add: (tag) => {
+        if (!this.imports.includes(tag)) {
+            this.imports.push(tag)
+        }
+    },
+    get: () => {
+        return this.imports
+    }
+}
+
+function makeTag(tag, props) {
 
     let eventsCode = handlerEvent(props)
     let propsCode = handlerProps(props)
@@ -31,7 +57,7 @@ function makeTag(tag, porps) {
 
 function handlerEvent(props) {
 
-    if (!props && !props.__events) { return '' }
+    if (!props || !props.__events) { return '' }
 
     let events = props.__events
     let eventCode = ''
@@ -52,7 +78,7 @@ function eventTpl(name, actionsCode) {
                         handler({ event, value, state: proxyState })
                     }
                 })(
-                    // 判断用户自定义处理 或 全局action处理
+                    /* 判断用户自定义处理 或 全局action处理 */
                     ({ event, value, state }) => { 
                         ${actionsCode}
                     },
@@ -67,9 +93,9 @@ function makeAction(action) {
     let _value = action.value
 
     // 公共action
-    if (_action === Action.Custom) {
+    if (_action === Action.Fetch) {
         return `;globalActions['${_value}']();`
-    } else if (_action === Action.ChangeState) {
+    } else if (_action === Action.Script) {
         return `;(${_value})({event, value, state});`
     } else if (_action === Action.Redirect) {
         return `;browserHistory.push('${_value}');`
@@ -94,11 +120,10 @@ function cleanProps(props) {
     return newProps
 }
 
-function makeProps(porps) {
+function makeProps(props) {
     let code = ''
     for (let key in props) {
         let value = JSON.stringify(props[key])
-            // console.log(value)
 
         if (value.includes('bind:')) {
             let c = value.substr(1, value.length - 2).split('bind:')[1].replace('state', 'this.props')
