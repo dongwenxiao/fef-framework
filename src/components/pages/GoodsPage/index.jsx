@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-const proxyState = {}
+const proxyState = require('../../../auto/proxy-state')
 
 export default class GoodsPage extends Component {
 
