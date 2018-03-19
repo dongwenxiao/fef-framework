@@ -9,10 +9,11 @@ const format = require('../utils/format')
 const config = require('../config')
 
 module.exports = {
-    make: (pageName, state) => {
+    make: ({ name, state }) => {
 
-        let pageClassName = `${pageName}Page`
-        let containerClassName = `${pageName}PageContainer`
+        let pageClassName = `${name}Page`
+        // let pageState = `${pageClassName}State`
+        let containerClassName = `${name}PageContainer`
 
         let code = `
             import React, { Component } from 'react'
@@ -25,13 +26,13 @@ module.exports = {
                     super(props)
                 }
                 render() {
-                    // console.log(this.props.${pageName}State)
+                    console.log(this.props.${pageClassName})
                     return <${pageClassName} {...this.props} />
                 }
             }
 
             export default connect(
-                state => ({ ${pageName}State: state.${pageName}Page })
+                state => ({ ${pageClassName}: state.${pageClassName} })
             )(${containerClassName})
 
         `

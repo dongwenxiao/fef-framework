@@ -10,9 +10,9 @@ const format = require('../utils/format')
 const config = require('../config')
 
 module.exports = {
-    make: (pageName) => {
+    make: ({ name }) => {
 
-        let pageClassName = `${pageName}Page`
+        let pageClassName = `${name}Page`
 
         let code = `
             export const ${pageClassName}_CHANGE = '${pageClassName}_CHANGE'

@@ -10,7 +10,7 @@ export default class GoodsPage extends Component {
 
     return (
       <div>
-          Page: Goods
+          Page: GoodsPage
       </div>
     )
   }

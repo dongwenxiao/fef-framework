@@ -9,16 +9,13 @@ const format = require('../utils/format')
 const config = require('../config')
 
 module.exports = {
-    make: (pageName, state) => {
-        
-        let pageClassName = `${pageName}Page`
-
+    make: ({ name, state }) => {
+        let pageClassName = `${name}Page`
         let code = `
             export const factory = () => (
                 ${JSON.stringify(state)}
             )
         `
-
         write(`${config.root}/src/redux/logic/${pageClassName}/initial-state-factory.js`, format.jsx(code))
     }
 }

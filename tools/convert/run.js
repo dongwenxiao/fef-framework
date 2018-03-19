@@ -15,20 +15,21 @@ const autoReducersFactory = require('./factory/auto-reducers')
 
 // console.log(JSON.stringify(appConfig))
 
-appConfig.pages.forEach(page => {
+const pages = appConfig.pages
+pages.forEach(page => {
     // page
-    pageFactory.make(page.name)
-    containerFactory.make(page.name, page.state)
+    pageFactory.make(page) // { name, component, state }
+    containerFactory.make(page)
 
     // redux
-    actionTypesFactory.make(page.name)
-    actionsFactory.make(page.name)
-    reducerFactory.make(page.name)
-    initialStateFactoryFactory.make(page.name, page.state) // state 需要改配置结构
+    actionTypesFactory.make(page)
+    actionsFactory.make(page)
+    reducerFactory.make(page)
+    initialStateFactoryFactory.make(page)
 
 })
 
-let pages = appConfig.pages.map(page => page.name)
+// let pages = appConfig.pages.map(page => page.name)
 autoActionTypesFactory.make(pages)
 routesFactory.make(pages)
 autoMenuFactory.make(pages)

@@ -9,14 +9,14 @@ class NewsPageContainer extends Component {
     super(props)
   }
   render() {
-    // console.log(this.props.NewsState)
+    console.log(this.props.NewsPage)
     return <NewsPage {...this.props} />
   }
 }
 
 export default connect(
   state => ({
-    NewsState: state.NewsPage
+    NewsPage: state.NewsPage
   })
 )(NewsPageContainer)
 

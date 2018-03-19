@@ -9,12 +9,11 @@ const format = require('../utils/format')
 const config = require('../config')
 
 module.exports = {
-    make: (pageName) => {
+    make: ({ name }) => {
 
-        let pageClassName = `${pageName}Page`
+        let pageClassName = `${name}Page`
 
         let code = `
-            
             import { ${pageClassName}_CHANGE, ${pageClassName}_RESET } from './action-types'
             export const change = (data) => ({
                 type: ${pageClassName}_CHANGE,

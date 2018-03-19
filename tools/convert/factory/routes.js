@@ -5,18 +5,18 @@
 */
 
 const write = require('../utils/write')
-const format = require('../utils/format')
+// const format = require('../utils/format')
 const config = require('../config')
 
 module.exports = {
     make: (pages) => {
 
-        let importCode = pages.map(pageName => {
-            return `const ${pageName} = lazyLoad(() => import(/* webpackChunkName: "${pageName}" */ '../containers/${pageName}PageContainer'))`
+        let importCode = pages.map(({ name }) => {
+            return `const ${name} = lazyLoad(() => import(/* webpackChunkName: "${name}" */ '../containers/${name}PageContainer'))`
         })
 
-        let tagsCode = pages.map((pageName, i) => {
-            return `<Route key='${pageName}-${i}' path='/${pageName.toLowerCase()}' component={${pageName}} />`
+        let tagsCode = pages.map(({ name }, i) => {
+            return `<Route key='${name}-${i}' path='/${name.toLowerCase()}' component={${name}} />`
         })
 
         let code = `
@@ -32,7 +32,7 @@ module.exports = {
 
             export { routes }
         `
-        
+
         write(`${config.root}/src/router/auto-routes.js`, code)
         // 开启格式化会报错，可能是配置问题
         // write(`${config.root}/src/router/auto-routes.js`, format.jsx(code))

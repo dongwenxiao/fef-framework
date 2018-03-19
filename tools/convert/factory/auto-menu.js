@@ -11,8 +11,8 @@ const config = require('../config')
 module.exports = {
     make: (pages) => {
 
-        let tagsCode = pages.map((pageName, i) => {
-            return `<MenuItem key='${pageName}-${i}'><Link to='/${pageName.toLowerCase()}'>${pageName}</Link></MenuItem>`
+        let tagsCode = pages.map(({ name }, i) => {
+            return `<MenuItem key='${name}-${i}'><Link to='/${name.toLowerCase()}'>${name}</Link></MenuItem>`
         })
 
         let code = `
@@ -25,7 +25,7 @@ module.exports = {
             ]
             export default AutoMenu
         `
-        
+
         write(`${config.root}/src/components/App/AutoMenu.jsx`, format.jsx(code))
     }
 }

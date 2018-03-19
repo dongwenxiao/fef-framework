@@ -4,15 +4,14 @@
     /src/components/pages/[页面名字]/index.jsx
 */
 
-
 const write = require('../utils/write')
 const format = require('../utils/format')
 const config = require('../config')
 
 module.exports = {
-    make: (pageName) => {
+    make: ({ name, component, state }) => {
 
-        let pageClassName = `${pageName}Page`
+        let pageClassName = `${name}Page`
 
         let code = `
             import React, { Component } from 'react'
@@ -26,7 +25,7 @@ module.exports = {
 
                     return (
                         <div>
-                            Page: ${pageName}
+                            Page: ${pageClassName}
                         </div>
                     )
                 }

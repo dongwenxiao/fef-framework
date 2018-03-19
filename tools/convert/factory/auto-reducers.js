@@ -12,10 +12,10 @@ module.exports = {
     make: (pages) => {
 
         let stateCode = []
-        let importCode = pages.map(pageName => {
-            let className = `${pageName}Page`
-            stateCode.push(className)
-            return `import ${className} from './logic/${className}/reducer'`
+        let importCode = pages.map(({ name }) => {
+            let pageClassName = `${name}Page`
+            stateCode.push(pageClassName)
+            return `import ${pageClassName} from './logic/${pageClassName}/reducer'`
         })
 
         let code = `

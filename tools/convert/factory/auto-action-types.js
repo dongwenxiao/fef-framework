@@ -12,8 +12,8 @@ module.exports = {
     make: (pages) => {
 
         let importsCode = []
-        let codes = pages.map(pageName => {
-            let pageClassName = `${pageName}Page`
+        let codes = pages.map(({ name }) => {
+            let pageClassName = `${name}Page`
             let importClassName = `${pageClassName}ActionTypes`
             importsCode.push(importClassName)
             let code = `
