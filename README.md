@@ -38,3 +38,5 @@
 ## TODO
 
 * 思考包装后的组件如何暴露他的```__events``` \ ```props```
+* convert tool 改成传递整个page config
+* 如果用非本页的state，如何查找载入

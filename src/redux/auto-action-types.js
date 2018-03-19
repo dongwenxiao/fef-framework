@@ -1,4 +1,6 @@
 
 import * as GoodsPageActionTypes from './logic/GoodsPage/action-types'
 
-export const autoActionTypes = [GoodsPageActionTypes]
+import * as NewsPageActionTypes from './logic/NewsPage/action-types'
+
+export const autoActionTypes = [GoodsPageActionTypes, NewsPageActionTypes]

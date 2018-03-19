@@ -4,7 +4,6 @@
     /src/components/pages/[页面名字]/index.jsx
 */
 
-
 const write = require('../utils/write')
 const format = require('../utils/format')
 const config = require('../config')
@@ -26,7 +25,7 @@ module.exports = {
                     super(props)
                 }
                 render() {
-                    console.log(this.props.${pageName}State)
+                    // console.log(this.props.${pageName}State)
                     return <${pageClassName} {...this.props} />
                 }
             }

@@ -9,7 +9,7 @@ class GoodsPageContainer extends Component {
     super(props)
   }
   render() {
-    console.log(this.props.GoodsState)
+    // console.log(this.props.GoodsState)
     return <GoodsPage {...this.props} />
   }
 }
