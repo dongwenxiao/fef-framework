@@ -23,8 +23,8 @@ module.exports = {
                                         __events: {
                                             onChange: [
                                                 {
-                                                    action: 'ChangeState',
-                                                    value: `({event, value, state}) => { state.goods.filter_goodsName = value }`
+                                                    action: 'Script',
+                                                    value: `({event, value, state}) => { state.GoodsPage.filterGoodsName = value }`
                                                 }
                                             ]
                                         }

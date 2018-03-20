@@ -5,23 +5,22 @@
 
 // 单例
 let proxyState
-const stateKeys = ['goods', 'dict'] /// => auto generate
+const stateKeys = ['goods', 'dict'] // / => auto generate
 
 module.exports = (store, proxyAction) => {
 
     if (!store) {
-        if (!proxyState) new Error('使用前必须先实例一次proxyState')
+        if (!proxyState) { new Error('使用前必须先实例一次proxyState') }
         return proxyState
     } else {
-        if (proxyState) new Error('proxyState已经被实例过了')
-
-        // proxyState = window.proxy_state = {}
+        if (proxyState) { new Error('proxyState已经被实例过了') }
         proxyState = {}
     }
 
     let realState = store.getState()
     for (let key in realState) {
-        if (stateKeys.includes(key)) {
+        if (true) {
+        // if (stateKeys.includes(key)) {
             proxyState[key] = new Proxy({}, {
                 get: (target, attr) => {
                     return store.getState()[key][attr]

@@ -3,7 +3,7 @@
 */
 
 // 单例
-const globalActions = {}
+const proxyAction = {}
 
 const fetch = require('../utils/fetch')
 const proxyState = require('./proxy-state')()
@@ -27,9 +27,13 @@ const convert2Data = (data) => {
 
 const create = (name, setting) => {
 
-    if (setting.action == 'FetchData') {
+    if (setting.action === 'Script') {
+        proxyAction[name] = setting.value
+    }
+
+    if (setting.action === 'Fetch') {
         let config = setting.value
-        globalActions[name] = () => {
+        proxyAction[name] = () => {
             fetch({
                     type: config.type,
                     url: config.url,
@@ -44,6 +48,6 @@ const create = (name, setting) => {
     }
 }
 
-globalActions.create = create
+proxyAction.create = create
 
-module.exports = globalActions
+module.exports = proxyAction

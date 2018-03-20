@@ -2,7 +2,7 @@ import React from 'react'
 export default class extends React.Component {
     render() {
         return (
-            <span {...this.props}>{this.props.children}</span>
+            <span {...this.props}>{this.props.text}</span>
         )
     }
 }

@@ -21,7 +21,7 @@ module.exports = {
 
             ${componentTag.imports}            
 
-            const proxyState = require('../../../auto/proxy-state')
+            const proxyState = require('../../../auto/proxy-state')()
 
             export default class ${pageClassName} extends Component {
 
@@ -38,6 +38,7 @@ module.exports = {
             }
         `
 
-        write(`${config.root}/src/components/pages/${pageClassName}/index.jsx`, format.jsx(code))
+        write(`${config.root}/src/components/pages/${pageClassName}/index.jsx`, code)
+        // write(`${config.root}/src/components/pages/${pageClassName}/index.jsx`, format.jsx(code))
     }
 }
