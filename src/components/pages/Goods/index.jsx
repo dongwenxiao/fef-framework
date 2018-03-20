@@ -21,7 +21,21 @@
                         <div>
                             Page: Goods
 
-                            <Page  ><Card  ><Row  ><Col  ><Label   text={"商品名:"} ></Label><Input 
+                            <Page 
+            __events={{
+                onLoad: ((handler, proxyState) => {
+                    return ({event, value}) => {
+                        handler({ event, value, state: proxyState })
+                    }
+                })(
+                    /* 判断用户自定义处理 或 全局action处理 */
+                    ({ event, value, state }) => { 
+                        ;globalActions['GetGoodsList']();
+                    },
+                    proxyState
+                )
+            }}
+         ><Card  ><Row  ><Col  ><Label   text={"商品名:"} ></Label><Input 
             __events={{
                 onChange: ((handler, proxyState) => {
                     return ({event, value}) => {
@@ -58,7 +72,7 @@
                 })(
                     /* 判断用户自定义处理 或 全局action处理 */
                     ({ event, value, state }) => { 
-                        
+                        ;globalActions['GetGoodsList']();
                     },
                     proxyState
                 )
