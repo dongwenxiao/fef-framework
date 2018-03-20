@@ -25,26 +25,26 @@ export default class GoodsPage extends Component {
                   <Row>
                       <Col>
                           <Label text={ "商品名:" }></Label>
-                          <Input __events={ { onChange: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { }, proxyState ) } } value={ "" } __events={ { "onChange": [{ "action": "ChangeState", "value": "({event, value, state}) => { state.goods.filter_goodsName = value }" }] } }></Input>
+                          <Input __events={ { onChange: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { }, proxyState ) } } value={ "" }></Input>
                       </Col>
                       <Col>
                           <Label text={ "商品ID:" }></Label>
-                          <Input __events={ { onChange: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { }, proxyState ) } } value={ "" } __events={ { "onChange": [{ "action": "ChangeState", "value": "({event, value, state}) => { state.goods.filter_goodsID = value }" }] } }></Input>
+                          <Input __events={ { onChange: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { }, proxyState ) } } value={ "" }></Input>
                       </Col>
                       <Col>
-                          <Button __events={ { onClick: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { }, proxyState ) } } text={ "查询" } __events={ { "onClick": [{ "action": "Custom", "value": "GetGoodsList" }] } }></Button>
-                          <Button __events={ { onClick: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { }, proxyState ) } } text={ "重置" } __events={ { "onClick": [{ "action": "ChangeState", "value": " ({state}) => { state.goods = {} } " }] } }></Button>
+                          <Button __events={ { onClick: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { }, proxyState ) } } text={ "查询" }></Button>
+                          <Button __events={ { onClick: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { }, proxyState ) } } text={ "重置" }></Button>
                       </Col>
                   </Row>
                   <Row>
                       <Col>
-                          <Button __events={ { onClick: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { ;(() => { alert(1) })({ event, value, state }); }, proxyState ) } } text={ "test" } __events={ { "onClick": [{ "action": "Script", "value": "() => {alert(1)}" }] } }></Button>
+                          <Button __events={ { onClick: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { ;(() => { alert(1) })({ event, value, state }); }, proxyState ) } } text={ "test" }></Button>
                       </Col>
                   </Row>
               </Card>
               <Card>
                   <Row>
-                      <Button __events={ { onClick: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { ;browserHistory.push('/goods/add'); }, proxyState ) } } text={ "+ 添加" } __events={ { "onClick": [{ "action": "Redirect", "value": "/goods/add" }] } }></Button>
+                      <Button __events={ { onClick: ((handler, proxyState) => { return ({event, value}) => { handler({ event, value, state: proxyState }) } })( /* 判断用户自定义处理 或 全局action处理 */ ({event, value, state}) => { ;browserHistory.push('/goods/add'); }, proxyState ) } } text={ "+ 添加" }></Button>
                   </Row>
               </Card>
               <Card>

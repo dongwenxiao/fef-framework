@@ -60,14 +60,15 @@ function handlerEvent(props) {
     if (!props || !props.__events) { return '' }
 
     let events = props.__events
-    let eventCode = ''
+    let eventCodes = []
     for (let name in events) {
         let actions = events[name]
         let actionsCode = actions.map(action => makeAction(action)).join('')
-        eventCode += eventTpl(name, actionsCode)
+        let eventCode = eventTpl(name, actionsCode)
+        eventCodes.push(eventCode)
     }
 
-    return eventCode
+    return eventCodes.join('')
 }
 
 function eventTpl(name, actionsCode) {
@@ -99,16 +100,14 @@ function makeAction(action) {
         return `;(${_value})({event, value, state});`
     } else if (_action === Action.Redirect) {
         return `;browserHistory.push('${_value}');`
-    } else if (_action === Action.Script) {
-        return `;(${_value})({state});`
     } else {
         return ''
     }
 }
 
 function handlerProps(props) {
-    porps = cleanProps(props)
-    return makeProps(props)
+    let clearPorps = cleanProps(props)
+    return makeProps(clearPorps)
 }
 
 function cleanProps(props) {
