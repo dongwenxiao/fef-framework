@@ -1,13 +1,13 @@
 
 
-import { GoodsPage_CHANGE, GoodsPage_RESET } from './action-types'
+import { Goods_CHANGE, Goods_RESET } from './action-types'
 import { factory } from './initial-state-factory'
 
 const typesCommands = {
-  [GoodsPage_CHANGE](state, action) {
+  [Goods_CHANGE](state, action) {
     return Object.assign({}, state, action.data)
   },
-  [GoodsPage_RESET](state, action) {
+  [Goods_RESET](state, action) {
     return factory()
   }
 }

@@ -12,7 +12,7 @@ const tags = require('./tags')
 module.exports = {
     make: ({ name, component, state }) => {
 
-        let pageClassName = `${name}Page`
+        let pageClassName = `${name}`
         let componentTag = tags.make([component])
 
         let code = `

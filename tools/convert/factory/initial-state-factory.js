@@ -10,7 +10,7 @@ const config = require('../config')
 
 module.exports = {
     make: ({ name, state }) => {
-        let pageClassName = `${name}Page`
+        let pageClassName = `${name}`
         let code = `
             export const factory = () => (
                 ${JSON.stringify(state)}

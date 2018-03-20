@@ -12,7 +12,7 @@ module.exports = {
     make: (pages) => {
 
         let tagsCode = pages.map(({ name }, i) => {
-            return `<MenuItem key='${name}-${i}'><Link to='/${name.toLowerCase()}'>${name}</Link></MenuItem>`
+            return `<MenuItem key='${name}-${i}'><Link to='/${name}'>${name}</Link></MenuItem>`
         })
 
         let code = `

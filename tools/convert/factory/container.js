@@ -11,9 +11,9 @@ const config = require('../config')
 module.exports = {
     make: ({ name, state }) => {
 
-        let pageClassName = `${name}Page`
+        let pageClassName = `${name}`
         // let pageState = `${pageClassName}State`
-        let containerClassName = `${name}PageContainer`
+        let containerClassName = `${name}Container`
 
         let code = `
             import React, { Component } from 'react'
@@ -37,6 +37,6 @@ module.exports = {
 
         `
 
-        write(`${config.root}/src/containers/${containerClassName}.jsx`, format.jsx(code))
+        write(`${config.root}/src/containers/${pageClassName}.jsx`, format.jsx(code))
     }
 }

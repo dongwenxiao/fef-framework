@@ -13,7 +13,7 @@ module.exports = {
 
         let importsCode = []
         let codes = pages.map(({ name }) => {
-            let pageClassName = `${name}Page`
+            let pageClassName = `${name}`
             let importClassName = `${pageClassName}ActionTypes`
             importsCode.push(importClassName)
             let code = `

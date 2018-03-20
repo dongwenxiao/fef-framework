@@ -13,7 +13,7 @@ module.exports = {
 
         let stateCode = []
         let importCode = pages.map(({ name }) => {
-            let pageClassName = `${name}Page`
+            let pageClassName = `${name}`
             stateCode.push(pageClassName)
             return `import ${pageClassName} from './logic/${pageClassName}/reducer'`
         })

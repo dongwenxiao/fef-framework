@@ -4,7 +4,6 @@
     /src/redux/logic/[页面名字]/action-types.js
 */
 
-
 const write = require('../utils/write')
 const format = require('../utils/format')
 const config = require('../config')
@@ -12,7 +11,7 @@ const config = require('../config')
 module.exports = {
     make: ({ name }) => {
 
-        let pageClassName = `${name}Page`
+        let pageClassName = `${name}`
 
         let code = `
             export const ${pageClassName}_CHANGE = '${pageClassName}_CHANGE'

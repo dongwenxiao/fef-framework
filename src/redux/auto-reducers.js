@@ -1,8 +1,8 @@
 
-import GoodsPage from './logic/GoodsPage/reducer'
+import Goods from './logic/Goods/reducer'
 
 const reducers = {
-  GoodsPage
+  Goods
 }
 
 export default reducers

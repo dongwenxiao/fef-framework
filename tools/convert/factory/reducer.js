@@ -12,7 +12,7 @@ const config = require('../config')
 module.exports = {
     make: ({ name }) => {
 
-        let pageClassName = `${name}Page`
+        let pageClassName = `${name}`
 
         let code = `
 

@@ -24,7 +24,7 @@ module.exports = {
                                             onChange: [
                                                 {
                                                     action: 'Script',
-                                                    value: `({event, value, state}) => { state.GoodsPage.filterGoodsName = value }`
+                                                    value: `({event, value, state}) => { state.Goods.filterGoodsName = value }`
                                                 }
                                             ]
                                         }
@@ -48,8 +48,8 @@ module.exports = {
                                         __events: {
                                             onChange: [
                                                 {
-                                                    action: 'ChangeState',
-                                                    value: `({event, value, state}) => { state.goods.filter_goodsID = value }`
+                                                    action: 'Script',
+                                                    value: `({event, value, state}) => { state.Goods.filterGoodsID = value }`
                                                 }
                                             ]
                                         }
@@ -214,7 +214,7 @@ module.exports = {
                             component: 'Table',
                             props: {
                                 value: [],
-                                dataSource: 'bind:state.GoodsPage.goodsList',
+                                dataSource: 'bind:state.Goods.goodsList',
                                 columns: [
                                     {
                                         title: 'ID',
@@ -276,14 +276,14 @@ module.exports = {
                                 pageChange: [
                                     {
                                         action: 'ChangeState',
-                                        value: ` ({value, state}) => { state.goods.goodsPageIndex = value } `
+                                        value: ` ({value, state}) => { state.goods.GoodsIndex = value } `
                                     },
                                     { action: 'GetGoodsList' }
                                 ],
                                 pageSizeChange: [
                                     {
                                         action: 'ChangeState',
-                                        value: ` ({value, state}) => { state.goods.goodsPageSize = value } `
+                                        value: ` ({value, state}) => { state.goods.GoodsSize = value } `
                                     },
                                     { 
                                         action: 'Custom',

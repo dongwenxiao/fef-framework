@@ -12,11 +12,11 @@ module.exports = {
     make: (pages) => {
 
         let importCode = pages.map(({ name }) => {
-            return `const ${name} = lazyLoad(() => import(/* webpackChunkName: "${name}" */ '../containers/${name}PageContainer'))`
+            return `const ${name} = lazyLoad(() => import(/* webpackChunkName: "${name}" */ '../containers/${name}'))`
         })
 
         let tagsCode = pages.map(({ name }, i) => {
-            return `<Route key='${name}-${i}' path='/${name.toLowerCase()}' component={${name}} />`
+            return `<Route key='${name}-${i}' path='/${name}' component={${name}} />`
         })
 
         let code = `
