@@ -99,7 +99,7 @@ function makeAction(action) {
     } else if (_action === Action.Script) {
         return `;(${_value})({event, value, state});`
     } else if (_action === Action.Redirect) {
-        return `;browserHistory.push('${_value}');`
+        return `;proxyAction.redirect({url: '${_value}'});`
     } else {
         return ''
     }

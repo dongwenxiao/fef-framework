@@ -2,7 +2,7 @@ module.exports = {
     component: 'Page',
     props: {
         __events: {
-            onLoad: [{
+            onWillMount: [{
                 action: 'Fetch',
                 value: 'GetGoodsList'
             }]

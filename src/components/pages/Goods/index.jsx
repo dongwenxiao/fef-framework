@@ -24,7 +24,7 @@
 
                             <Page 
             __events={{
-                onLoad: ((handler, proxyState) => {
+                onWillMount: ((handler, proxyState) => {
                     return ({event, value}) => {
                         handler({ event, value, state: proxyState })
                     }
@@ -115,7 +115,7 @@
                 })(
                     /* 判断用户自定义处理 或 全局action处理 */
                     ({ event, value, state }) => { 
-                        ;browserHistory.push('/goods/add');
+                        ;proxyAction.redirect({url: '/goods/add'});
                     },
                     proxyState
                 )

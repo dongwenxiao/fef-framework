@@ -6,7 +6,6 @@
 const proxyAction = {}
 
 const fetch = require('../utils/fetch')
-// const proxyState = require('./proxy-state')()
 
 const convertStr2Var = (str) => {
     let execute = `
@@ -14,7 +13,7 @@ const convertStr2Var = (str) => {
             return ${str}
         })(proxyState)
     `
-    // 在作用域内可用
+        // 在作用域内可用
     const proxyState = require('./proxy-state')()
     return eval(execute)
 }
@@ -51,6 +50,40 @@ const create = (name, setting) => {
     }
 }
 
-proxyAction.create = create
+function redirectPath(path) {
+    proxyAction.__history.push(path)
+}
 
+function redirectUrl(url) {
+    window.location.href = url
+}
+const setHistory = (history) => {
+    proxyAction.__history = history
+    return proxyAction
+}
+
+
+const redirect = ({ type = 'path', url }) => {
+
+    // path: history重定向(页面不刷新)
+    // url: url重定向(页面刷新)
+
+    if (~url.substr(0, 5).indexOf('http')) {
+        type = 'url'
+    }
+
+    switch (type) {
+        case 'url':
+            return redirectUrl(url)
+        case 'path':
+            return redirectPath(url)
+        default:
+            return console.error('Unknow redirect type', type)
+    }
+}
+
+
+proxyAction.create = create
+proxyAction.setHistory = setHistory
+proxyAction.redirect = redirect
 module.exports = proxyAction

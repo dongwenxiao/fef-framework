@@ -7,7 +7,7 @@ const appConfig = {
             action: 'Fetch',
             value: {
                 type: 'get',
-                url: 'http://10.60.206.15:3167/lists',
+                url: 'http://10.60.206.15:3167/list',
                 data: {
                     goods_name: 'state.Goods.filterGoodsName',
                     goods_id: 'state.Goods.filterGoodsID',
