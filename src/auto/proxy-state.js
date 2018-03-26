@@ -5,7 +5,6 @@
 
 // 单例
 let proxyState
-const stateKeys = ['goods', 'dict'] // / => auto generate
 
 module.exports = (store, proxyAction) => {
 
@@ -20,19 +19,25 @@ module.exports = (store, proxyAction) => {
     let realState = store.getState()
     for (let key in realState) {
         if (true) {
-        // if (stateKeys.includes(key)) {
             proxyState[key] = new Proxy({}, {
                 get: (target, attr) => {
+                    // 默认获取状态
                     return store.getState()[key][attr]
                 },
                 set: (target, attr, value) => {
                     let data = {}
                     data[attr] = value
+                    // 默认修改状态
                     store.dispatch(proxyAction[key].change(data))
                     return true
                 }
             })
         }
+    }
+
+    // 默认重置状态
+    proxyState.reset = (key) => {
+        store.dispatch(proxyAction[key].reset())
     }
     return proxyState
 }

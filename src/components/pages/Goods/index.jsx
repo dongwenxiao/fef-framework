@@ -50,7 +50,7 @@
                     proxyState
                 )
             }}
-          value={""} ></Input></Col><Col  ><Label   text={"商品ID:"} ></Label><Input 
+          value={this.props.Goods.filterGoodsName} ></Input></Col><Col  ><Label   text={"商品ID:"} ></Label><Input 
             __events={{
                 onChange: ((handler, proxyState) => {
                     return ({event, value}) => {
@@ -87,7 +87,7 @@
                 })(
                     /* 判断用户自定义处理 或 全局action处理 */
                     ({ event, value, state }) => { 
-                        
+                        ;( ({state}) => { state.reset('Goods') } )({event, value, state});
                     },
                     proxyState
                 )

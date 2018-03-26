@@ -22,7 +22,10 @@ module.exports = {
                     }, {
                         component: 'Input',
                         props: {
-                            value: '',
+                            value: {
+                                type: 'bind',
+                                value: 'state.Goods.filterGoodsName'
+                            },
                             __events: {
                                 onChange: [{
                                     action: 'Script',
@@ -70,8 +73,8 @@ module.exports = {
                                 text: '重置',
                                 __events: {
                                     onClick: [{
-                                        action: 'ChangeState',
-                                        value: ` ({state}) => { state.goods = {} } `
+                                        action: 'Script',
+                                        value: ` ({state}) => { state.reset('Goods') } `
                                     }]
                                 }
                             }

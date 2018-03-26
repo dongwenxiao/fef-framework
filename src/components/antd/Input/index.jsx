@@ -10,23 +10,20 @@ export default class extends React.Component {
     render() {
         let props = standard.props(this.props)
         let events = standard.events(this.props)
-        let me = this
         return <input
             {...props}
             onChange={(e) => {
-                let value = e.target.value
-                me.setState({ value })
                 events.onChange(e)
             }}
-            value={this.state.value}
         ></input>
     }
-
 }
 
 export const standard = {
     props: (props = {}) => {
-        let defaultProps = {}
+        let defaultProps = {
+            value: ''
+        }
         let p = Object.assign(defaultProps, props)
         delete p.__events
         return p
