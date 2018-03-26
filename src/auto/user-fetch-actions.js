@@ -7,24 +7,19 @@ const proxyAction = require('./proxy-action')
 proxyAction.create('GetGoodsList',
     // => 用户自己配置的部分
     {
-        action: 'FetchData',
+        action: 'Fetch',
         value: {
             type: 'get',
-            url: '/api/goods/lists',
+            url: 'http://10.60.206.15:3167/list',
+            // path: '/api/goods/lists',
             data: {
-                goods_name: 'state.goods.filter_goodsName',
-                goods_id: 'state.goods.filter_goodsID',
-                brand_name: 'state.goods.filter_goodsBrand',
-                brand_name: 'state.goods.filter_goodsCategory',
-                page: 'state.goods.goodsPageIndex',
-                page_size: 'state.goods.goodsPageSize',
+                goods_name: 'state.Goods.filterGoodsName'
             },
             callback: `
-                    ({ res, state }) => {
-                        state.goods.goodsList = res.data.lists
-                        state.goods.goodsTotal = res.data.lists_count
-                    }
-                `
+                ({ res, state }) => {
+                    state.Goods.goodsList = res
+                }
+            `
         }
     }
 )

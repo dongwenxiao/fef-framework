@@ -4,10 +4,10 @@ module.exports = {
     make: (components) => {
         collection.reset()
         let code = recursive(components)
-        let imports = collection.get().map(tag => ` import ${tag} from '../../antd/${tag}' `).join('\n')
+        let imports = collection.get().map(tag => ` import ${tag} from '../../antd/${tag}' `)
         return {
-            imports,
-            code
+            imports, // 数组，用于后续计算
+            code // 字符串，可直接输出
         }
     }
 }
@@ -46,8 +46,8 @@ let collection = {
 
 function makeTag(tag, props) {
 
-    let eventsCode = handlerEvent(props)
-    let propsCode = handlerProps(props)
+    let eventsCode = handleEvent(props)
+    let propsCode = handleProps(props)
 
     return {
         begin: `<${tag} ${eventsCode} ${propsCode}>`,
@@ -55,7 +55,7 @@ function makeTag(tag, props) {
     }
 }
 
-function handlerEvent(props) {
+function handleEvent(props) {
 
     if (!props || !props.__events) { return '' }
 
@@ -95,7 +95,7 @@ function makeAction(action) {
 
     // 公共action
     if (_action === Action.Fetch) {
-        return `;globalActions['${_value}']();`
+        return `;proxyAction['${_value}']();`
     } else if (_action === Action.Script) {
         return `;(${_value})({event, value, state});`
     } else if (_action === Action.Redirect) {
@@ -105,7 +105,7 @@ function makeAction(action) {
     }
 }
 
-function handlerProps(props) {
+function handleProps(props) {
     let clearPorps = cleanProps(props)
     return makeProps(clearPorps)
 }
@@ -122,14 +122,64 @@ function cleanProps(props) {
 function makeProps(props) {
     let code = ''
     for (let key in props) {
-        let value = JSON.stringify(props[key])
+        let prop = props[key]
 
-        if (value.includes('bind:')) {
-            let c = value.substr(1, value.length - 2).split('bind:')[1].replace('state', 'this.props')
-            code += ` ${key}={${c}} `
+        if (typeof prop === 'string') {
+            // string
+            code += ` ${key}={${JSON.stringify(prop)}} `
+        } else if (typeof prop === 'object') {
+
+            if (prop.type === 'object') {
+                code += ` ${key}={${JSON.stringify(prop.value)}} `
+            }
+
+            if (prop.type === 'bind') {
+                let _val = prop.value.replace('state', 'this.props')
+                code += ` ${key}={${_val}} `
+            }
+
         } else {
-            code += ` ${key}={${value}} `
+            console.log('Error:  unknow prop type :::' + prop)
         }
+
+        /* if (typeof prop === 'string') {
+            // string
+            code += ` ${key}={${JSON.stringify(prop)}} `
+        } else if (typeof prop === 'object' && !prop.length) {
+            // object
+            if (prop.type === 'bind') {
+                let _val = prop.value.replace('state', 'this.props')
+                code += ` ${key}={${_val}} `
+            } else if (prop.type === 'component') {
+                let _val = prop.value
+                _val = _val.length ? _val : [_val]
+                let _code = _val.map(item => {
+                    item.render.map(_i => {
+                        return recursive(_val)
+                    })
+                })
+                // let _code = recursive(_val)
+
+                
+                console.log(_code)
+
+                code += _code
+            } else {
+                new Error('未知 prop 类型：' + prop.type)
+            }
+        } else if (typeof prop === 'object' && prop.length) {
+            // array
+
+        } */
+
+        // let value = JSON.stringify(prop)
+
+        // if (value.includes('bind:')) {
+        //     let c = value.substr(1, value.length - 2).split('bind:')[1].replace('state', 'this.props')
+        //     code += ` ${key}={${c}} `
+        // } else {
+        //     code += ` ${key}={${value}} `
+        // }
 
     }
     return code

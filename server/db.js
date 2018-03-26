@@ -14,7 +14,8 @@ module.exports = function() {
         'content|5-10': [{
             'id|+1': 0,
             name: '@cname',
-            tel: telReg
+            tel: telReg,
+            img: 'https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg'
         }]
     }).content
 

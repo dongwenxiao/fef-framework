@@ -183,60 +183,67 @@ module.exports = {
                 children: [{
                     component: 'Table',
                     props: {
-                        value: [],
-                        dataSource: 'bind:state.Goods.goodsList',
-                        columns: [{
-                            title: 'ID',
-                            key: 'goods_id',
-                            render: [{
-                                component: 'String',
-                                props: `({value}) => ({value: '#' + value})`
-                            }]
-                        }, {
-                            title: '商品名称',
-                            key: 'goods_name',
-                            render: [{
-                                component: 'String',
-                                props: `({value}) => ({value})`
-                            }]
-                        }, {
-                            title: '商品图片',
-                            key: 'img_url',
-                            render: [{
-                                component: 'Image',
-                                props: `({value}) => ({styles: { width: '80px' }, src: value})`
-                            }]
-                        }, {
-                            title: '品牌名',
-                            key: 'brand_name',
-                            render: [{
-                                component: 'String',
-                                props: `({value, state}) => ({value: state.dict.goods_brand.find(item => item.id === value).name})` // 借助state.dict.brandList
-                            }]
-                        }, {
-                            title: '操作',
-                            key: 'goods_opt',
-                            render: [{
-                                component: 'Link',
-                                props: `({ value, row }) => ({ text: '查看', href: '/goods/view/' + row['goods_id'] })`
+                        /* value: [], */
+                        dataSource: {
+                            type: 'bind',
+                            value: 'state.Goods.goodsList'
+                        },
+                        columnsObj: {
+                            type: 'object',
+                            value: [{
+                                title: 'ID',
+                                key: 'id',
+                                render: [{
+                                    component: 'String',
+                                    props: `({value}) => ({value: '#' + value})`
+                                }]
                             }, {
-                                component: 'Link',
-                                props: `({value, row}) => ({ text: '编辑', href: '/goods/edit/' + row['goods_id'] })`
+                                title: '姓名',
+                                key: 'name',
+                                render: [{
+                                    component: 'String',
+                                    props: `({value}) => ({value})`
+                                }]
+                            }, {
+                                title: '图片',
+                                key: 'img',
+                                render: [{
+                                    component: 'Image',
+                                    props: `({value}) => ({style: { width: '80px' }, src: value})`
+                                }]
+                            }, {
+                                title: '电话',
+                                key: 'tel',
+                                render: [{
+                                    component: 'String',
+                                    // props: `({value, state}) => ({value: state.dict.goods_brand.find(item => item.id === value).name})` // 借助state.dict.brandList
+                                    props: `({value, state}) => ({value: '+' + value})` // 借助state.dict.brandList
+                                }]
+                            }, {
+                                title: '操作',
+                                key: 'goods_opt',
+                                render: [{
+                                    component: 'Link',
+                                    props: `({ value, row }) => ({ text: '查看', href: '/goods/view/' + row['id'] })`
+                                }, {
+                                    component: 'Link',
+                                    props: `({value, row}) => ({ text: '编辑', href: '/goods/edit/' + row['id'] })`
+                                }]
                             }]
-                        }]
-                    },
-                    __events: {
-                        pageChange: [{
-                            action: 'ChangeState',
-                            value: ` ({value, state}) => { state.goods.GoodsIndex = value } `
-                        }, { action: 'GetGoodsList' }],
-                        pageSizeChange: [{
-                            action: 'ChangeState',
-                            value: ` ({value, state}) => { state.goods.GoodsSize = value } `
-                        }, {
-                            action: 'Custom',
-                            value: 'GetGoodsList'
-                        }]
+                        },
+                        __events: {
+                            pageChange: [{
+                                action: 'ChangeState',
+                                value: ` ({value, state}) => { state.goods.GoodsIndex = value } `
+                            }, { action: 'GetGoodsList' }],
+                            pageSizeChange: [{
+                                action: 'ChangeState',
+                                value: ` ({value, state}) => { state.goods.GoodsSize = value } `
+                            }, {
+                                action: 'Custom',
+                                value: 'GetGoodsList'
+                            }]
+                        }
                     }
                 }]
             }]

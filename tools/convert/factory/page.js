@@ -7,21 +7,22 @@
 const write = require('../utils/write')
 const format = require('../utils/format')
 const config = require('../config')
-const tags = require('./tags')
+const tagsFactory = require('./tags')
 
 module.exports = {
     make: ({ name, component, state }) => {
 
         let pageClassName = `${name}`
-        let componentTag = tags.make([component])
+        let componentTag = tagsFactory.make([component])
 
         let code = `
             import React, { Component } from 'react'
             import { Link } from 'react-router-dom'
 
-            ${componentTag.imports}            
+            ${componentTag.imports.join('\n')}
 
             const proxyState = require('../../../auto/proxy-state')()
+            const proxyAction = require('../../../auto/proxy-action')
 
             export default class ${pageClassName} extends Component {
 

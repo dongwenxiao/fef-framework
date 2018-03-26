@@ -11,9 +11,9 @@ const history = createHistory()
 const mountNode = document.getElementById('app')
 
 const proxyAction = require('./auto/proxy-action')
+const proxyState = require('./auto/proxy-state')(store, proxyAction)
 const allDefaultActions = require('./auto/all-default-actions')
 const userFetchActions = require('./auto/user-fetch-actions')
-const proxyState = require('./auto/proxy-state')(store, proxyAction)
 
 /*
    react-redux 提供 Provider 组件，

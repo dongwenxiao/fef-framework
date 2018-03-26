@@ -6,7 +6,7 @@
 const proxyAction = {}
 
 const fetch = require('../utils/fetch')
-const proxyState = require('./proxy-state')()
+// const proxyState = require('./proxy-state')()
 
 const convertStr2Var = (str) => {
     let execute = `
@@ -14,6 +14,8 @@ const convertStr2Var = (str) => {
             return ${str}
         })(proxyState)
     `
+    // 在作用域内可用
+    const proxyState = require('./proxy-state')()
     return eval(execute)
 }
 
@@ -41,6 +43,7 @@ const create = (name, setting) => {
                 })
                 .then((res) => {
                     // => 用户自己配置的部分
+                    const proxyState = require('./proxy-state')()
                     let execute = eval(config.callback)
                     execute({ res, state: proxyState })
                 })
