@@ -5,7 +5,9 @@ module.exports = {
             onWillMount: [{
                 action: 'Fetch',
                 value: 'GetGoodsList'
-            }]
+            }],
+            onDidMount: [],
+            onUnMount: []
         }
     },
     children: [{
