@@ -12,7 +12,8 @@ const autoActionTypesFactory = require('./factory/auto-action-types')
 const routesFactory = require('./factory/routes')
 const autoMenuFactory = require('./factory/auto-menu')
 const autoReducersFactory = require('./factory/auto-reducers')
-const autoAllDefaultActions = require('./factory/all-default-actions')
+const autoAllDefaultActionsFactory = require('./factory/all-default-actions')
+const userFetchActionsFactory = require('./factory/user-fetch-actions')
 
 // console.log(JSON.stringify(appConfig))
 
@@ -35,4 +36,6 @@ autoActionTypesFactory.make(pages)
 routesFactory.make(pages)
 autoMenuFactory.make(pages)
 autoReducersFactory.make(pages)
-autoAllDefaultActions.make(pages)
+autoAllDefaultActionsFactory.make(pages)
+
+userFetchActionsFactory.make(appConfig)

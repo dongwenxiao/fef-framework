@@ -4,22 +4,21 @@ const appConfig = {
     },
     actions: { // page内全局 action
         GetGoodsList: {
-            action: 'FetchData',
+            action: 'Fetch',
             value: {
                 type: 'get',
-                url: '/api/goods/lists',
+                url: 'http://10.60.206.15:3167/lists',
                 data: {
-                    goods_name: 'state.goods.filter_goodsName',
-                    goods_id: 'state.goods.filter_goodsID',
-                    brand_name: 'state.goods.filter_goodsBrand',
-                    brand_name: 'state.goods.filter_goodsCategory',
-                    page: 'state.goods.goodsPageIndex',
-                    page_size: 'state.goods.goodsPageSize',
+                    goods_name: 'state.Goods.filterGoodsName',
+                    goods_id: 'state.Goods.filterGoodsID',
+                    brand_name: 'state.Goods.filter_goodsBrand',
+                    brand_name: 'state.Goods.filter_goodsCategory',
+                    page: 'state.Goods.goodsPageIndex',
+                    page_size: 'state.Goods.goodsPageSize',
                 },
                 callback: `
                     ({res, state}) => {
-                        state.goods.goodsList = res.data.list
-                        state.goods.goodsTotal = res.data.total
+                        state.Goods.goodsList = res
                     }
                 `
             }
