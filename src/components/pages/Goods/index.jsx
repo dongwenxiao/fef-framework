@@ -92,7 +92,7 @@
                     proxyState
                 ),
             
-        }}  value={""} ></Input></Col><Col  ><Button __events={{
+        }}  value={this.props.Goods.filterGoodsID} ></Input></Col><Col  ><Button __events={{
             
                 onClick: ((handler, proxyState) => {
                     return ({event, value}) => {
@@ -115,26 +115,12 @@
                 })(
                     /* 判断用户自定义处理 或 全局action处理 */
                     ({ event, value, state }) => { 
-                        ;( ({state}) => { state.reset('Goods') } )({event, value, state});
+                        ;( ({state}) => { state.Goods.filterGoodsID = '';state.Goods.filterGoodsName = '' } )({event, value, state});
                     },
                     proxyState
                 ),
             
-        }}  text={"重置"} ></Button></Col></Row><Row  ><Col  ><Button __events={{
-            
-                onClick: ((handler, proxyState) => {
-                    return ({event, value}) => {
-                        handler({ event, value, state: proxyState })
-                    }
-                })(
-                    /* 判断用户自定义处理 或 全局action处理 */
-                    ({ event, value, state }) => { 
-                        ;(() => {alert(1)})({event, value, state});
-                    },
-                    proxyState
-                ),
-            
-        }}  text={"test"} ></Button></Col></Row></Card><Card  ><Row  ><Button __events={{
+        }}  text={"重置"} ></Button></Col></Row><Row  ></Row></Card><Card  ><Row  ><Button __events={{
             
                 onClick: ((handler, proxyState) => {
                     return ({event, value}) => {

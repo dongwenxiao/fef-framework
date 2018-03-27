@@ -46,7 +46,10 @@ module.exports = {
                     }, {
                         component: 'Input',
                         props: {
-                            value: '',
+                            value: {
+                                type: 'bind',
+                                value: 'state.Goods.filterGoodsID'
+                            },
                             __events: {
                                 onChange: [{
                                     action: 'Script',
@@ -76,7 +79,8 @@ module.exports = {
                                 __events: {
                                     onClick: [{
                                         action: 'Script',
-                                        value: ` ({state}) => { state.reset('Goods') } `
+                                        // value: ` ({state}) => { state.reset('Goods') } `
+                                        value: ` ({state}) => { state.Goods.filterGoodsID = '';state.Goods.filterGoodsName = '' } `
                                     }]
                                 }
                             }
@@ -85,7 +89,7 @@ module.exports = {
                 }]
             }, {
                 component: 'Row',
-                children: [{
+                children: [/* {
                     component: 'Col',
                     children: [{
                         component: 'Button',
@@ -99,7 +103,7 @@ module.exports = {
                             }
                         }
                     }]
-                }]
+                } */]
             }]
         },
         /* {
