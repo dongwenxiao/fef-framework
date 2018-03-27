@@ -4,6 +4,7 @@
 */
 
 import * as Goods from '../redux/logic/Goods/actions'
+import * as News from '../redux/logic/News/actions'
 
 const proxyAction = require('./proxy-action')
 
@@ -11,5 +12,11 @@ const proxyAction = require('./proxy-action')
 proxyAction.create('Goods', {
   action: 'Script',
   value: Goods
+})
+
+
+proxyAction.create('News', {
+  action: 'Script',
+  value: News
 })
 
