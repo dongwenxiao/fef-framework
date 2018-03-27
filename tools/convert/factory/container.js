@@ -26,7 +26,7 @@ module.exports = {
                     super(props)
                 }
                 render() {
-                    console.log(this.props.${pageClassName})
+                    // console.log(this.props.${pageClassName})
                     return <${pageClassName} {...this.props} />
                 }
             }
