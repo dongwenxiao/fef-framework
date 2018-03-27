@@ -61,19 +61,22 @@ function handleEvent(props) {
 
     let events = props.__events
     let eventCodes = []
+    eventCodes.push('__events={{')
     for (let name in events) {
         let actions = events[name]
         let actionsCode = actions.map(action => makeAction(action)).join('')
         let eventCode = eventTpl(name, actionsCode)
         eventCodes.push(eventCode)
     }
+    eventCodes.push('}}')
 
     return eventCodes.join('')
 }
 
+
 function eventTpl(name, actionsCode) {
     return `
-            __events={{
+            
                 ${name}: ((handler, proxyState) => {
                     return ({event, value}) => {
                         handler({ event, value, state: proxyState })
@@ -84,8 +87,8 @@ function eventTpl(name, actionsCode) {
                         ${actionsCode}
                     },
                     proxyState
-                )
-            }}
+                ),
+            
         `
 }
 
