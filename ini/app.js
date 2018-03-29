@@ -29,10 +29,14 @@ const appConfig = {
         component: require('./goods/component'),
         state: require('./goods/state')
     }, {
+        name: 'GoodsAdd', // 唯一
+        component: require('./goods-add/component'),
+        state: require('./goods-add/state')
+    }/* , {
         name: 'News', // 唯一
         component: require('./news/component'),
         state: require('./news/state')
-    }]
+    } */]
 }
 
 module.exports = appConfig

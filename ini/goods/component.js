@@ -89,7 +89,7 @@ module.exports = {
                 }]
             }, {
                 component: 'Row',
-                children: [/* {
+                children: [{
                     component: 'Col',
                     children: [{
                         component: 'Button',
@@ -98,12 +98,12 @@ module.exports = {
                             __events: {
                                 onClick: [{
                                     action: 'Script',
-                                    value: '() => {alert(1)}'
+                                    value: `({state}) => {state.Goods.filterGoodsName = 'kkk'}`
                                 }]
                             }
                         }
                     }]
-                } */]
+                }]
             }]
         },
         /* {
@@ -179,7 +179,7 @@ module.exports = {
                         __events: {
                             onClick: [{
                                 action: 'Redirect',
-                                value: '/goods/add'
+                                value: '/GoodsAdd'
                             }]
                         }
                     }

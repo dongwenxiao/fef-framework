@@ -120,7 +120,7 @@
                     proxyState
                 ),
             
-        }}  text={"重置"} ></Button></Col></Row><Row  ></Row></Card><Card  ><Row  ><Button __events={{
+        }}  text={"重置"} ></Button></Col></Row><Row  ><Col  ><Button __events={{
             
                 onClick: ((handler, proxyState) => {
                     return ({event, value}) => {
@@ -129,7 +129,21 @@
                 })(
                     /* 判断用户自定义处理 或 全局action处理 */
                     ({ event, value, state }) => { 
-                        ;proxyAction.redirect({url: '/goods/add'});
+                        ;(({state}) => {state.Goods.filterGoodsName = 'kkk'})({event, value, state});
+                    },
+                    proxyState
+                ),
+            
+        }}  text={"test"} ></Button></Col></Row></Card><Card  ><Row  ><Button __events={{
+            
+                onClick: ((handler, proxyState) => {
+                    return ({event, value}) => {
+                        handler({ event, value, state: proxyState })
+                    }
+                })(
+                    /* 判断用户自定义处理 或 全局action处理 */
+                    ({ event, value, state }) => { 
+                        ;proxyAction.redirect({url: '/GoodsAdd'});
                     },
                     proxyState
                 ),
