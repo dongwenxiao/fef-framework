@@ -14,6 +14,7 @@ const autoMenuFactory = require('./factory/auto-menu')
 const autoReducersFactory = require('./factory/auto-reducers')
 const autoAllDefaultActionsFactory = require('./factory/all-default-actions')
 const userFetchActionsFactory = require('./factory/user-fetch-actions')
+const onAppRunFactory = require('./factory/on-app-run')
 
 // console.log(JSON.stringify(appConfig))
 
@@ -39,3 +40,4 @@ autoReducersFactory.make(pages)
 autoAllDefaultActionsFactory.make(pages)
 
 userFetchActionsFactory.make(appConfig)
+onAppRunFactory.make(appConfig)

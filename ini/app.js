@@ -1,13 +1,13 @@
 const appConfig = {
     config: {
-        api: 'http://erp-test-api.cmcm.com',
+        api: 'http://10.60.206.6:3167',
     },
     actions: { // page内全局 action
         GetGoodsList: {
             action: 'Fetch',
             value: {
                 type: 'get',
-                url: 'http://10.60.205.169:3167/list',
+                url: '/list',
                 data: {
                     goods_name: 'state.Goods.filterGoodsName',
                     goods_id: 'state.Goods.filterGoodsID',
@@ -19,6 +19,23 @@ const appConfig = {
                 callback: `
                     ({res, state}) => {
                         state.Goods.goodsList = res
+                    }
+                `
+            }
+        },
+        AddGoods: {
+            action: 'Fetch',
+            value: {
+                type: 'post',
+                url: '/add',
+                data: {
+                    goodsName: 'state.GoodsAdd.goodsName'
+                },
+                callback: `
+                    ({res, state}) => {
+                        if(res.code === 200){
+                            alert('success')
+                        }
                     }
                 `
             }

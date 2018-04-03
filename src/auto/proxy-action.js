@@ -5,7 +5,7 @@
 // 单例
 const proxyAction = {}
 
-const fetch = require('../utils/fetch')
+const { fetch } = require('../utils/fetch')
 
 const convertStr2Var = (str) => {
     let execute = `

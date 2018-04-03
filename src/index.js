@@ -10,10 +10,7 @@ import Root from './router/routes'
 const history = createHistory()
 const mountNode = document.getElementById('app')
 
-const proxyAction = require('./auto/proxy-action').setHistory(history)
-const proxyState = require('./auto/proxy-state')(store, proxyAction)
-const allDefaultActions = require('./auto/all-default-actions')
-const userFetchActions = require('./auto/user-fetch-actions')
+require('./auto/onAppRun')({ history, store })
 
 /*
    react-redux 提供 Provider 组件，
@@ -21,7 +18,7 @@ const userFetchActions = require('./auto/user-fetch-actions')
 */
 ReactDOM.render(
     <Provider store={store}>
-        <ConnectedRouter history={history} basename="">
+        <ConnectedRouter history={history}>
             <Root />
         </ConnectedRouter>
     </Provider>,

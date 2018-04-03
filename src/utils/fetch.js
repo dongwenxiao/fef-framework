@@ -3,9 +3,9 @@ const formData = require('./form-data')
     // const urlToken = require('./url-token')
     // const loginUrl = ''
 
-const domain = '' // 来自配置
+let domain = '' // 来自配置
 
-module.exports = function({ url = '', type = 'get', data }) {
+const _fetch = ({ url = '', type = 'get', data }) => {
 
     // 具体URL 或者 相对URL
     url = ~url.indexOf('http') ? url : domain + url
@@ -61,4 +61,13 @@ module.exports = function({ url = '', type = 'get', data }) {
             // message.error('server error')
             console.log(err)
         })
+}
+
+const setDomain = (value) => {
+    domain = value
+}
+
+module.exports = {
+    fetch: _fetch,
+    setDomain
 }

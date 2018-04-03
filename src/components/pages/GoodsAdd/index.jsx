@@ -35,7 +35,7 @@
                     proxyState
                 ),
             
-        }}  value={""} ></Input></Col><Col  ><Label   text={"商品图片:"} ></Label><Input __events={{
+        }}  value={this.props.GoodsAdd.goodsName} ></Input></Col><Col  ><Label   text={"商品图片:"} ></Label><Input __events={{
             
                 onChange: ((handler, proxyState) => {
                     return ({event, value}) => {
@@ -58,7 +58,7 @@
                 })(
                     /* 判断用户自定义处理 或 全局action处理 */
                     ({ event, value, state }) => { 
-                        ;proxyAction['GetGoodsList']();
+                        ;proxyAction['AddGoods']();
                     },
                     proxyState
                 ),

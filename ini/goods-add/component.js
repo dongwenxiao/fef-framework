@@ -14,7 +14,10 @@ module.exports = {
                 }, {
                     component: 'Input',
                     props: {
-                        value: '',
+                        value: {
+                            type: 'bind',
+                            value: 'state.GoodsAdd.goodsName'
+                        },
                         __events: {
                             onChange: [{
                                 action: 'Script',
@@ -51,7 +54,7 @@ module.exports = {
                             __events: {
                                 onClick: [{
                                     action: 'Fetch',
-                                    value: 'GetGoodsList'
+                                    value: 'AddGoods'
                                 }]
                             }
                         }
