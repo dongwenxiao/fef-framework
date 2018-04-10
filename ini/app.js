@@ -1,6 +1,6 @@
 const appConfig = {
     config: {
-        api: 'http://10.60.206.6:3167',
+        api: 'http://10.60.205.204:3167',
     },
     actions: { // page内全局 action
         GetGoodsList: {

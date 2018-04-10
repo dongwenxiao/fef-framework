@@ -2,10 +2,10 @@ module.exports = {
     component: 'Page',
     props: {
         __events: {
-            onWillMount: [{
+            onWillMount: [/* {
                 action: 'Fetch',
                 value: 'GetGoodsList'
-            }],
+            } */],
             onDidMount: [],
             onUnMount: []
         }
@@ -68,7 +68,10 @@ module.exports = {
                                     onClick: [{
                                         action: 'Fetch',
                                         value: 'GetGoodsList'
-                                    }]
+                                    }/* , {
+                                        action: 'Script',
+                                        value: `({event, value, state}) => { alert('done') }`
+                                    } */]
                                 }
                             }
                         },
@@ -204,7 +207,7 @@ module.exports = {
                                 key: 'id',
                                 render: [{
                                     component: 'String',
-                                    props: `({value}) => ({value: '#' + value})`
+                                    props: `({value}) => ({value: '# ' + value})`
                                 }]
                             }, {
                                 title: '姓名',
@@ -241,17 +244,17 @@ module.exports = {
                             }]
                         },
                         __events: {
-                            pageChange: [{
-                                action: 'ChangeState',
-                                value: ` ({value, state}) => { state.goods.GoodsIndex = value } `
-                            }, { action: 'GetGoodsList' }],
-                            pageSizeChange: [{
-                                action: 'ChangeState',
-                                value: ` ({value, state}) => { state.goods.GoodsSize = value } `
-                            }, {
-                                action: 'Custom',
-                                value: 'GetGoodsList'
-                            }]
+                            // pageChange: [{
+                            //     action: 'ChangeState',
+                            //     value: ` ({value, state}) => { state.goods.GoodsIndex = value } `
+                            // }, { action: 'GetGoodsList' }],
+                            // pageSizeChange: [{
+                            //     action: 'ChangeState',
+                            //     value: ` ({value, state}) => { state.goods.GoodsSize = value } `
+                            // }, {
+                            //     action: 'Custom',
+                            //     value: 'GetGoodsList'
+                            // }]
                         }
                     }
                 }]

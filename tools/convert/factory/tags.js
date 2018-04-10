@@ -64,8 +64,8 @@ function handleEvent(props) {
     eventCodes.push('__events={{')
     for (let name in events) {
         let actions = events[name]
-        let actionsCode = actions.map(action => makeAction(action)).join('')
-        let eventCode = eventTpl(name, actionsCode)
+        let promiseActions = makeActions(actions)
+        let eventCode = makeEventCode(name, promiseActions)
         eventCodes.push(eventCode)
     }
     eventCodes.push('}}')
@@ -73,36 +73,83 @@ function handleEvent(props) {
     return eventCodes.join('')
 }
 
+function connectPromise(promiseCodes) {
 
-function eventTpl(name, actionsCode) {
-    return `
-            
-                ${name}: ((handler, proxyState) => {
-                    return ({event, value}) => {
-                        handler({ event, value, state: proxyState })
-                    }
-                })(
-                    /* 判断用户自定义处理 或 全局action处理 */
-                    ({ event, value, state }) => { 
-                        ${actionsCode}
-                    },
-                    proxyState
-                ),
-            
+    if (!promiseCodes || promiseCodes.length === 0) { return '' }
+
+    let codes = []
+    for (let i = 0; i < promiseCodes.length; i++) {
+        let promiseCode = promiseCodes[i]
+        if (i === 0) {
+            codes.push(promiseCode)
+        } else {
+            codes.push('.then(')
+            codes.push(promiseCode)
+            codes.push(')')
+        }
+    }
+    codes.push('.then(() => {})')
+    codes = codes.join('')
+    
+    return codes
+}
+
+function makeEventCode(name, promiseActions) {
+    
+    let code = `
+            ${name}: ((handler, proxyState) => {
+                return ({event, value}) => {
+                    handler({ event, value, state: proxyState })
+                }
+            })(
+                /* 判断用户自定义处理 或 全局action处理 */
+                ({ event, value, state }) => { 
+                    ${connectPromise(promiseActions)}
+                },
+                proxyState
+            ),
         `
+    return code
+}
+
+function makeActions(actions) {
+    let _actions = actions.map(action => makeAction(action))
+
+    if (_actions.length > 0) {
+        _actions[0] += '()'
+    }
+
+    return _actions
 }
 
 function makeAction(action) {
     let _action = action.action
     let _value = action.value
 
+    // Promise 执行说明
+    // ()() 双括号结构表示立即执行，此处只声明，不执行
+    // 在makeActions()方法中，第一个action会带着 ()
+    // 后面其他的action不带 ()
+
     // 公共action
     if (_action === Action.Fetch) {
-        return `;proxyAction['${_value}']();`
+        return `proxyAction['${_value}']` // => promise
     } else if (_action === Action.Script) {
-        return `;(${_value})({event, value, state});`
+        return `
+            (() => {
+                return new Promise((reslove) => {
+                    (${_value})({event, value, state})
+                })
+            })
+        `
     } else if (_action === Action.Redirect) {
-        return `;proxyAction.redirect({url: '${_value}'});`
+        return `
+            (() => {
+                return new Promise((reslove) => {
+                    proxyAction.redirect({url: '${_value}'})
+                })
+            })
+        `
     } else {
         return ''
     }

@@ -35,7 +35,7 @@ const create = (name, setting) => {
     if (setting.action === 'Fetch') {
         let config = setting.value
         proxyAction[name] = () => {
-            fetch({
+            return fetch({
                     type: config.type,
                     url: config.url,
                     data: convert2Data(config.data)
