@@ -40,6 +40,6 @@
 * 思考包装后的组件如何暴露他的```__events``` \ ```props```
 * convert tool 改成传递整个 page config
 * 如果用非本页的state，如何查找载入
-* 使用模拟接口，做一个公共Fetch测试
-* action返回promise
-* 使用自写代码扩展
+* 使用模拟接口，做一个公共Fetch测试 [✓]
+* action返回promise [✓]
+* 使用自写代码扩展：配置require或import
