@@ -16,12 +16,11 @@ const autoAllDefaultActionsFactory = require('./factory/all-default-actions')
 const userFetchActionsFactory = require('./factory/user-fetch-actions')
 const onAppRunFactory = require('./factory/on-app-run')
 
-// console.log(JSON.stringify(appConfig))
 
 const pages = appConfig.pages
 pages.forEach(page => {
     // page
-    pageFactory.make(page) // { name, component, state }
+    pageFactory.make(page) // page: { name, component, state }
     containerFactory.make(page)
 
     // redux
@@ -29,10 +28,8 @@ pages.forEach(page => {
     actionsFactory.make(page)
     reducerFactory.make(page)
     initialStateFactoryFactory.make(page)
-
 })
 
-// let pages = appConfig.pages.map(page => page.name)
 autoActionTypesFactory.make(pages)
 routesFactory.make(pages)
 autoMenuFactory.make(pages)
