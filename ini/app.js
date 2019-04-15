@@ -1,6 +1,6 @@
 const appConfig = {
     config: {
-        api: 'http://10.60.205.204:3167',
+        api: 'http://localhost:3167',
     },
     actions: { // page内全局 action
         GetGoodsList: {
@@ -45,15 +45,18 @@ const appConfig = {
         name: 'Goods', // 唯一
         component: require('./goods/component'),
         state: require('./goods/state')
-    }, {
+    },
+    {
         name: 'GoodsAdd', // 唯一
         component: require('./goods-add/component'),
         state: require('./goods-add/state')
-    }/* , {
+    },
+    {
         name: 'News', // 唯一
         component: require('./news/component'),
         state: require('./news/state')
-    } */]
+    }
+    ]
 }
 
 module.exports = appConfig

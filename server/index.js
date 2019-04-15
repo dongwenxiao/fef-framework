@@ -1,4 +1,5 @@
 const jsonServer = require('json-server')
+// const ip = '127.0.0.1'
 const ip = require('ip').address()
 const server = jsonServer.create()
 const middlewares = jsonServer.defaults()
@@ -15,7 +16,7 @@ server.use(router)
 
 server.listen(
    {
-      host: ip,
+    //   host: ip,
       port: 3167
    },
    function() {

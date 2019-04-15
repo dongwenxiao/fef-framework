@@ -1,0 +1,35 @@
+base: 
+    api: http://localhost:3167
+pages:
+    - key: goods
+      ui: ./goods/ui.yml
+      state: ./goods/state.yml
+    - key: goods_add
+      ui: ./goods_add/ui.yml
+      state: ./goods_add/state.yml
+actions: 
+    get_goods_list:
+        type: fetch
+        value: 
+            method: get
+            url: /list
+            data:
+                goods_name: state.goods.filterGoodsName
+                goods_id: state.goods.filterGoodsID
+            callback:
+                ({res, state}) => {
+                    state.goods.goodsList = res
+                }
+    add_goods:
+        type: fetch
+        value:
+            method: post
+            url: /add
+            data: 
+                goods_name: state.goods_add.goodsName
+            callback:
+                ({res, state}) => {
+                    if(res.code === 200){
+                        alert('success')
+                    }
+                }

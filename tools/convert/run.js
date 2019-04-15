@@ -19,6 +19,7 @@ const onAppRunFactory = require('./factory/on-app-run')
 
 const pages = appConfig.pages
 pages.forEach(page => {
+    
     // page
     pageFactory.make(page) // page: { name, component, state }
     containerFactory.make(page)

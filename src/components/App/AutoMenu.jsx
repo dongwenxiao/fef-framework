@@ -8,6 +8,8 @@ const AutoMenu = () => [
       <Link to='/Goods'>Goods</Link>
   </MenuItem>, <MenuItem key='GoodsAdd-1'>
                                                                          <Link to='/GoodsAdd'>GoodsAdd</Link>
-                                                                     </MenuItem>
+                                                                     </MenuItem>, <MenuItem key='News-2'>
+                                                                                                                                                     <Link to='/News'>News</Link>
+                                                                                                                                                 </MenuItem>
 ]
 export default AutoMenu

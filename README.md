@@ -37,10 +37,13 @@
 
 ## TODO
 
-* 思考包装后的组件如何暴露他的```__events``` \ ```props```
-* convert tool 改成传递整个 page config [✓]
-* 如果用非本页的state，如何查找载入
-* 使用模拟接口，做一个公共Fetch测试 [✓]
-* action返回promise [✓]
-* 使用自写代码扩展：配置require或import
-* Auth问题：可以自行附加一个登陆也，把token放在cookie、localstroge里面
+
+- [ ] 思考包装后的组件如何暴露他的```__events``` \ ```props```。<br>
+      方案：手写一个说明的Object，如{event: { name: 'click', desc: '点击事件' }}
+- [ ] 检查手写Script Action的时候，state[xxx] 子状态名字是否合理
+- [ ] 如果用非本页的state，如何查找载入
+- [ ] 使用自写代码扩展：配置require或import
+- [ ] Auth问题：可以自行附加一个登陆也，把token放在cookie、localstroge里面
+- [x] convert tool 改成传递整个 page config 
+- [x] 使用模拟接口，做一个公共Fetch测试 
+- [x] action返回promise 

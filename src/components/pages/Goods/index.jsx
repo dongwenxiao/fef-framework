@@ -58,7 +58,7 @@
                 },
                 proxyState
             ),
-        }} ><Card  ><Row  ><Col  ><Label   text={"商品名:"} ></Label><Input __events={{
+        }} ><Card  ><Row  ><Col  ><Label   text={"商品名！！:"} ></Label><Input __events={{
             onChange: ((handler, proxyState) => {
                 return ({event, value}) => {
                     handler({ event, value, state: proxyState })
@@ -124,25 +124,7 @@
                 },
                 proxyState
             ),
-        }}  text={"重置"} ></Button></Col></Row><Row  ><Col  ><Button __events={{
-            onClick: ((handler, proxyState) => {
-                return ({event, value}) => {
-                    handler({ event, value, state: proxyState })
-                }
-            })(
-                /* 判断用户自定义处理 或 全局action处理 */
-                ({ event, value, state }) => { 
-                    
-            (() => {
-                return new Promise((reslove) => {
-                    (({state}) => {state.Goods.filterGoodsName = 'kkk'})({event, value, state})
-                })
-            })
-        ().then(() => {})
-                },
-                proxyState
-            ),
-        }}  text={"test"} ></Button></Col></Row></Card><Card  ><Row  ><Button __events={{
+        }}  text={"重置"} ></Button></Col></Row></Card><Card  ><Row  ><Button __events={{
             onClick: ((handler, proxyState) => {
                 return ({event, value}) => {
                     handler({ event, value, state: proxyState })

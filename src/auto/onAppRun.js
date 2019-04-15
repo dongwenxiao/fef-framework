@@ -1,5 +1,5 @@
 
-require('../utils/fetch').setDomain('http://10.60.205.204:3167')
+require('../utils/fetch').setDomain('http://localhost:3167')
 
 module.exports = ({history, store}) => {
   const proxyAction = require('./proxy-action').setHistory(history)

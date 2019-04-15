@@ -1,7 +1,7 @@
 import React from 'react'
 import AntButton from 'antd/lib/button'
-import PropTypes from 'prop-types'
 import 'antd/lib/button/style'
+// import PropTypes from 'prop-types'
 
 export default class Button extends React.Component {
     render() {

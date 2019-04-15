@@ -1,0 +1,19 @@
+Page: 
+  onDidMount: ~
+  children: 
+    -
+      Row: 
+        Col:
+          children:
+            -
+              component: Button
+              children: 查询
+              onClick:
+                  - script: ({event, value, state}) => { alert('loading') }
+                  - fetch: get_goods_list
+                  - script: ({event, value, state}) => { alert('done') }
+            -
+              component: Button
+              children: 重置
+              onClick:
+                - script: ({state}) => { state.Goods.filterGoodsID = ''; state.Goods.filterGoodsName = '' }
